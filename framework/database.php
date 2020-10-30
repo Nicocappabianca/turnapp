@@ -1,6 +1,6 @@
 <?php
 
-require('./constants.inc'); /* FILE WITH DATABASE CREDENTIALS */
+require 'constants.php'; /* FILE WITH DATABASE CREDENTIALS */
 
 class Database { 
     private $connection = false; 
