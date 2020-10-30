@@ -11,9 +11,25 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </head>
 <header>
-    <nav class="navbar navbar-light bg-light px-5 py-3">
+    <nav class="navbar navbar-expand-lg bg-dark px-5 py-1">
         <a class="navbar-brand" href="#">
-            <img src="../assets/icons/logo.svg" width="150" class="d-inline-block align-top" alt="TurnApp">
+            <img src="../assets/icons/logo.png" width="80" class="d-inline-block align-top" alt="TurnApp">
         </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-lg-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Ver turnos</a>
+                </li>
+                <li class="nav-item ml-lg-3">
+                    <a class="nav-link text-white" href="#">Perfil</a>
+                </li>
+                <li class="nav-item ml-lg-3">
+                    <a class="nav-link text-white" href="#">Cerrar sesión</a>
+                </li>
+            </ul>
+        </div>
     </nav>
 </header>
