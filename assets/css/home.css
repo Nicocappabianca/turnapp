@@ -4,18 +4,29 @@
 }
 #home > h1 { 
     font-weight: 800;
-    font-size: 30px;
+    font-size: 22px;
+}
+@media (min-width: 768px) { 
+    #home > h1 { 
+        font-size: 30px;
+    }
 }
 #home > h3 { 
     font-weight: 600;
-    font-size: 22px;
+    font-size: 16px;
     color: #808080;
+}
+@media (min-width: 768px) {  
+    #home > h3 { 
+        font-size: 22px;
+    }
 }
 #home .swiper-container { 
     height: 420px;
     cursor: grab;
 }
 #home .card { 
+    max-width: 100%;
     width: 350px!important;
     height: 380px!important;
     text-align: left;
