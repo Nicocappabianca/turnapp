@@ -45,6 +45,9 @@ const homeSwiper = new Swiper('.swiper-container', {
             slidesPerView: 3,
             spaceBetween: 20
         }
-    }
+    }, 
+    autoplay: {
+        delay: 2000,
+    },
 });
 </script>
