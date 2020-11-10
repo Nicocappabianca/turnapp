@@ -1,3 +1,38 @@
 #home { 
     min-height: calc(100vh - 108.91px);
+    font-family: 'Lato', sans-serif;
+}
+#home > h1 { 
+    font-weight: 800;
+    font-size: 30px;
+}
+#home > h3 { 
+    font-weight: 600;
+    font-size: 22px;
+    color: #808080;
+}
+#home .swiper-container { 
+    height: 420px;
+    cursor: grab;
+}
+#home .card { 
+    width: 350px!important;
+    height: 380px!important;
+    text-align: left;
+}
+
+#home .card img { 
+    height: 200px;
+    object-fit: cover;
+}
+#home .card .card-title { 
+    font-weight: 600;
+}
+#home .card .btn-reserve { 
+    position: absolute;
+    bottom: 15px; 
+    right: 0px;
+    left: 0px;
+    width: 150px;
+    margin: 0 auto;
 }

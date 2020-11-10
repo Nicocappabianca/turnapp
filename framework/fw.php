@@ -1,7 +1,6 @@
 <?php
+/* Framework requires */
 
-// framework/fw.php
-
-require '../framework/database.php';
+require '../framework/Database.php';
 require '../framework/Model.php';
 require '../framework/View.php'; 
