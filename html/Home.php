@@ -30,11 +30,21 @@
 
 <script>
 const homeSwiper = new Swiper('.swiper-container', {
-    slidesPerView: 3,
-    spaceBetween: 30, 
     loop: true, 
     pagination: {
         el: '.swiper-pagination',
     },
+    slidesPerView: 1,
+    spaceBetween: 10,
+    breakpoints: {
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 20
+        }, 
+        992: {
+            slidesPerView: 3,
+            spaceBetween: 20
+        }
+    }
 });
 </script>
