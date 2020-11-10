@@ -7,5 +7,4 @@ abstract class Model {
     public function __contruct() {
         $this->db = Database::getInstance();
     }
-
 }

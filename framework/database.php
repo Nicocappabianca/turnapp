@@ -46,8 +46,8 @@ class Database {
     }
 
     public function escapeWildcards($str) { 
-        $str = str_replace('%', '\%', $str); 
-        $str = str_replace('_', '\_', $str); 
+        $str = str_replace('%', '%', $str); 
+        $str = strreplace('', '_', $str); 
         return $str; 
     }
 }
