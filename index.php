@@ -1,3 +1,2 @@
 <?php
-    // header('Location: controllers/Home.php');
-    asdfasd(); 
+    header('Location: controllers/Home.php');

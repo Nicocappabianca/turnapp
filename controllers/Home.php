@@ -1,7 +1,7 @@
 <?php 
-// require '../framework/fw.php'; 
-// require '../views/Home.php'; 
-// require '../models/Companies.php'; 
+require '../framework/fw.php'; 
+require '../views/Home.php'; 
+require '../models/Companies.php'; 
 
 $companiesModel = new Companies(); 
 $companies = $companiesModel->getAll(); 
