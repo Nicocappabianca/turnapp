@@ -13,14 +13,22 @@
 
     <!-- Font Lato -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Header styles -->
+    <link rel="stylesheet" href="../assets/css/header.css">
 </head>
 <header>
-    <nav class="navbar navbar-expand-lg bg-dark px-5 py-1">
+    <nav class="navbar navbar-expand-lg bg-dark px-lg-5 py-1">
         <a class="navbar-brand" href="#">
             <img src="../assets/icons/logo.png" width="80" class="d-inline-block align-top" alt="TurnApp">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
+        </button> -->
+        <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>				
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-lg-auto">
