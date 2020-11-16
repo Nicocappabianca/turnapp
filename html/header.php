@@ -30,7 +30,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-lg-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="./Reservation.php">Mis reservas</a>
+                    <a class="nav-link text-white" href="./Reservations.php">Mis reservas</a>
                 </li>
                 <li class="nav-item ml-lg-3">
                     <a class="nav-link text-white" href="./Profile.php">Perfil</a>

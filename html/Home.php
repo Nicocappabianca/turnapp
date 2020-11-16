@@ -17,7 +17,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"><?= $company['name'] ?></h5>
                                 <p class="card-text"><?= $company['description'] ?></p>
-                                <a href="#" class="btn btn-success btn-reserve">Reservar ahora</a>
+                                <a href="../controllers/Shifts.php?companyId=<?= $company['id'] ?>" class="btn btn-success btn-reserve">Reservar ahora</a>
                             </div>
                         </div>
                     </div>
