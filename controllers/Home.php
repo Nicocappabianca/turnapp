@@ -2,9 +2,10 @@
 require '../framework/fw.php';
 require '../models/Company.php';  
 require '../views/Home.php'; 
+require '../models/Companies.php'; 
 
-$Company = new Company(); 
-$allCompanies = $Company->getAll(); 
+$companiesModel = new Companies(); 
+$companies = $companiesModel->getAll(); 
 
 $homeView = new Home();
 $homeView->companies = $allCompanies; 
