@@ -19,7 +19,7 @@
 </head>
 <header>
     <nav class="navbar navbar-expand-lg bg-dark px-lg-5 py-1">
-        <a class="navbar-brand" href="/turnapp/controllers/Home.php">
+        <a class="navbar-brand" href="./Home.php">
             <img src="../assets/icons/logo.png" width="80" class="d-inline-block align-top" alt="TurnApp">
         </a>
         <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,10 +30,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-lg-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Ver turnos</a>
+                    <a class="nav-link text-white" href="./Reservation.php">Mis reservas</a>
                 </li>
                 <li class="nav-item ml-lg-3">
-                    <a class="nav-link text-white" href="/turnapp/controllers/Profile.php">Perfil</a>
+                    <a class="nav-link text-white" href="./Profile.php">Perfil</a>
                 </li>
                 <li class="nav-item ml-lg-3">
                     <a class="nav-link text-white" href="#">Cerrar sesión</a>
