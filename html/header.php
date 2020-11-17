@@ -36,7 +36,7 @@
                     <a class="nav-link text-white" href="./Profile.php">Perfil</a>
                 </li>
                 <li class="nav-item ml-lg-3">
-                    <a class="nav-link text-white" href="#">Cerrar sesión</a>
+                    <a class="nav-link text-white" href="./Logout.php">Cerrar sesión</a>
                 </li>
             </ul>
         </div>

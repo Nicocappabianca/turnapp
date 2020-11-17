@@ -1,3 +1,12 @@
+<?php
+    session_start();
+
+    if(!isset($_SESSION['loged'])) {
+        header('Location: login.php');
+        exit;
+    }
+?>
+
 <link rel="stylesheet" href="../assets/css/home.css">
 
 <!-- Swiper JS -->
