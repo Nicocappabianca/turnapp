@@ -5,16 +5,18 @@
 class Shifts extends Model{
 
     public function getAllDays( $companyId ) {
-        $this->db->query("SELECT * FROM shifts WHERE id_company = $companyId");
-        $days = $this->db->fetchAll();
+        $this->db->query("SELECT * FROM shifts WHERE id_company = $companyId  ORDER BY date_time ASC");
+        $dates = $this->db->fetchAll();
         
-        $daysArray = array(); 
+        $days = array(); 
 
-        foreach($days as $day) { 
-            $day = new DateTime($day); 
-            $date = $dateTime->format('n.j.Y'); 
-
-            array_push($daysArray, $date)
+        foreach($dates as $date) { 
+            $day = new DateTime($date['date_time']); 
+            $day = $day->format('j.n.Y'); 
+            $day = array('date' => $day, 'available' => $date['available']); 
+            array_push($days, $day); 
         }
+        
+        return array_unique($days, SORT_REGULAR); 
     }
 }

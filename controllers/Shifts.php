@@ -4,8 +4,8 @@ require '../views/ShiftsList.php';
 require '../models/Shifts.php'; 
 
 $shiftsModel = new Shifts(); 
-$shifts = $shiftsModel->getAll($_GET['companyId']); 
+$days = $shiftsModel->getAllDays($_GET['companyId']); 
 
 $shiftsView = new ShiftsList();
-$shiftsView->shifts = $shifts; 
+$shiftsView->days = $days; 
 $shiftsView->render();

@@ -1,5 +1,5 @@
 <?php
 
 class ShiftsList extends View {
-    public $shifts;
+    public $days;
 }
