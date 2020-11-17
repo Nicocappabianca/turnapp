@@ -47,7 +47,7 @@ const homeSwiper = new Swiper('.swiper-container', {
         }
     }, 
     autoplay: {
-        delay: 2000,
+        delay: 5000,
     },
 });
 </script>
