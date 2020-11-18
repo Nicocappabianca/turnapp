@@ -1,30 +1,7 @@
-<?php
-
-    session_start();
-
-    if(count($_POST) > 0) {
-        // Validaciones
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-
-
-        $res = getUser($email);
-
-        if (mysqli_num_rows($res) == 1) {
-            $_SESSION['loged'] = true;
-            $fila = mysqli_fetch_assoc($res);
-            $_SESSION['name'] = $fila['name'];
-            header('Location: Home.php');
-            exit;
-        }
-    }
-
-?>
-
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <form action="" method="post">
+            <form action="../controllers/Login.php?email=<?=$email?>&password=<?=$password?>" method="post">
                 <div class="form-group">
                     <label for="email">Dirección de Email</label>
                     <input type="email" class="form-control" name="email" placeholder="Ingrese email">

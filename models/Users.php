@@ -9,7 +9,7 @@ class Users extends Model{
         return $this->db->fetchAll(); 
     }
 
-    public function getUser($email) {
+    public function getUser($email, $password) {
         $this->db->query("SELECT * FROM users
                                     WHERE email='$email' and password='$password'
                                     LIMIT 1");
