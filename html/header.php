@@ -23,7 +23,7 @@
         <a class="navbar-brand" href="./Home.php">
             <img src="../assets/icons/logo.png" width="80" class="d-inline-block align-top" alt="TurnApp">
         </a>
-        <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler collapsed ml-auto <?= isset($_SESSION['loged']) ? 'd-block' : 'd-none'; ?>" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar top-bar"></span>
             <span class="icon-bar middle-bar"></span>
             <span class="icon-bar bottom-bar"></span>				
