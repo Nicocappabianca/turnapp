@@ -34,20 +34,25 @@
 
 <section id="shifts">
     <div class="container">
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <?php foreach($this->days as $day): ?>
-                    <div class="swiper-slide">
-                        <a href="#">
-                            <div class="day-item <?= !$day['available'] ? 'not-available' : '' ?>">
-                                <h4><?= explode('.' , $day['date'])[0] ?></h4>
-                                <p><?= toMonth(explode('.' , $day['date'])[1]) ?></p>
-                            </div>
-                        </a>
-                    </div>
-                <?php endforeach; ?>
+        <?php if( count($this->days) > 0 ): ?>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <?php foreach($this->days as $day): ?>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <div class="day-item <?= !$day['available'] ? 'not-available' : '' ?>">
+                                    <h4><?= explode('.' , $day['date'])[0] ?></h4>
+                                    <p><?= toMonth(explode('.' , $day['date'])[1]) ?></p>
+                                </div>
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
-        </div>
+        <?php else: ?>
+            <h5 class="text-center pt-4"><div class="mb-2">😰</div>Parece que esta empresa aún no ha cargado sus turnos</h5>
+            <p class="text-center">Te recomendamos que vuelvas más tarde.</p>
+        <?php endif; ?>
     </div>
 </section>
 
