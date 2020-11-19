@@ -8,7 +8,7 @@ $loginView = new Login();
 
 if( (!empty($_POST['email'])) && (!empty($_POST['password'])) ) {
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = sha1($_POST['password']);
     // falta validar
 
     $usersModel = new Users();

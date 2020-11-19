@@ -20,6 +20,7 @@ if( (!empty($_POST['email'])) && (!empty($_POST['password'])) && (!empty($_POST[
     if ($password != $confirmPassword) {
         $signupView->password_wrong = true;
     } else {
+        $password = sha1($password);
         if( $usersModel->signup($email, $password, $name, $surname) ) { 
             header('Location: Login.php');
             exit;
