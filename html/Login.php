@@ -17,7 +17,7 @@
                     </div>
                 </form>
                 <div class="d-flex justify-content-center mt-2">
-                    <span>¿No tiene cuenta?</span> <a class="link" href="../controllers/Signup.php">Registrarse</a>
+                    <span>¿No tiene cuenta?</span><a class="link ml-2" href="../controllers/Signup.php">Registrarse</a>
                 </div>
             </div>
         </div>
