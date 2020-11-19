@@ -3,7 +3,7 @@ require '../framework/fw.php';
 require '../views/Signup.php'; 
 require '../models/Users.php';
 
-session_start();
+if(!isset($_SESSION)) session_start();
 $signupView = new Signup();
 
 if( (!empty($_POST['email'])) && (!empty($_POST['password'])) && (!empty($_POST['name'])) && (!empty($_POST['surname']))) {

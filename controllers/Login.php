@@ -4,7 +4,7 @@ require '../views/Login.php';
 require '../models/Users.php';
 require '../models/Companies.php';
 
-session_start();
+if(!isset($_SESSION)) session_start();
 $loginView = new Login();
 
 if( (!empty($_POST['email'])) && (!empty($_POST['password'])) ) {
