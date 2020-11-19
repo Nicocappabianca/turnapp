@@ -12,6 +12,7 @@
                         <input type="password" class="form-control" name="password" placeholder="Contraseña">
                     </div>
                     <span class="login-error mb-2 <?= $this->failed_login == true ? 'd-block' : 'd-none' ?>">Por favor, verifique su nombre de usuario y contraseña.</span>
+                    <input type="checkbox" name="isCompany" value="true"><label class="ml-2" for="isCompany">Ingresar cómo empresa</label>
                     <div class="text-center">
                         <button type="submit" class="btn btn-success mt-3">Iniciar sesión</button>
                     </div>
