@@ -1,4 +1,4 @@
-<section id="login">
+<section id="signup">
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6 offset-md-3">
@@ -15,16 +15,16 @@
                         <label for="email">Dirección de Email</label>
                         <input type="email" class="form-control" name="email" placeholder="Ingrese email">
                     </div>
-                    <span class="login-error mb-2 <?= $this->mail_in_use == true ? 'd-block' : 'd-none' ?>">El email ya esta en uso.</span>
+                    <span class="signup-error mb-2 <?= $this->mail_in_use == true ? 'd-block' : 'd-none' ?>">El email ya esta en uso.</span>
                     <div class="form-group">
                         <label for="password">Contraseña</label>
                         <input type="password" class="form-control" name="password" placeholder="Contraseña">
                     </div>
                     <div class="form-group">
                         <label for="password">Confirmar contraseña.</label>
-                        <input type="password" class="form-control" name="password" placeholder="Contraseña">
+                        <input type="password" class="form-control" name="confirm-password" placeholder="Contraseña">
                     </div>
-                    <span class="login-error mb-2 <?= $this->password_wrong == true ? 'd-block' : 'd-none' ?>">Las contraseñas no coinciden.</span>
+                    <span class="signup-error mb-2 <?= $this->password_wrong == true ? 'd-block' : 'd-none' ?>">Las contraseñas no coinciden.</span>
                     <div class="text-center">
                         <button type="submit" class="btn btn-success mt-3">Registrarse</button>
                     </div>
@@ -38,15 +38,15 @@
 </section>
 
 <style>
-    #login { 
+    #signup { 
         padding-top: 60px; 
         min-height: calc(100vh - 108.91px);
         width: 100%; 
     }
-    #login .btn { 
+    #signup .btn { 
         width: 200px; 
     }
-    .login-error { 
+    .signup-error { 
         color: #FF0000; 
         font-size: 12px; 
         font-weight: 600; 

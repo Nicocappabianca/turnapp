@@ -6,20 +6,26 @@ require '../models/Users.php';
 session_start();
 $signupView = new Signup();
 
-if( (!empty($_POST['email'])) || (!empty($_POST['password'])) || (!empty($_POST['name'])) || (!empty($_POST['surname']))) {
+if( (!empty($_POST['email'])) && (!empty($_POST['password'])) && (!empty($_POST['name'])) && (!empty($_POST['surname']))) {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $name = $_POST['name'];
     $surname = $_POST['surname'];
+    $confirmPassword = $_POST['confirm-password'];
     // falta validar
 
+
     $usersModel = new Users();
-    if( $usersModel->signup($email, $password, $name, $surname) ) { 
-        // $signupView->failed_login = false; 
-        header('Location: Login.php');
-        exit;
-    } else { 
-        // $signupView->failed_login = true; 
+
+    if ($password != $confirmPassword) {
+        $signupView->password_wrong = true;
+    } else {
+        if( $usersModel->signup($email, $password, $name, $surname) ) { 
+            header('Location: Login.php');
+            exit;
+        } else { 
+            $signupView->mail_in_use = true; 
+        }
     }
 }
 

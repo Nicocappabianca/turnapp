@@ -27,10 +27,10 @@ class Users extends Model{
         $this->db->query("SELECT * FROM users WHERE email='$email' LIMIT 1");
 
         if($this->db->numRows() == 1) {
-            return;
+            return $validUser;
         } else {
             $this->db->query("INSERT INTO users (name, surname, email, password)
-                                VALUES ($name, $surname, $email, $password)");
+                                VALUES ('$name', '$surname', '$email', '$password')");
             $validUser = true;
             return $validUser;
         }
