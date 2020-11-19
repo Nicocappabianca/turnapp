@@ -1,3 +1,4 @@
+<?php if(!isset($_SESSION)) session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,13 +31,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-lg-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="./Reservations.php">Mis reservas</a>
+                    <a class="nav-link text-white <?= isset($_SESSION['loged']) ? 'd-block' : 'd-none'; ?>" href="./Reservations.php">Mis reservas</a>
                 </li>
                 <li class="nav-item ml-lg-3">
-                    <a class="nav-link text-white" href="./Profile.php">Perfil</a>
+                    <a class="nav-link text-white <?= isset($_SESSION['loged']) ? 'd-block' : 'd-none'; ?>" href="./Profile.php">Perfil</a>
                 </li>
                 <li class="nav-item ml-lg-3">
-                    <a class="nav-link text-white" href="./Logout.php">Cerrar sesión</a>
+                    <a class="nav-link text-white <?= isset($_SESSION['loged']) ? 'd-block' : 'd-none'; ?>" href="./Logout.php">Cerrar sesión</a>
                 </li>
             </ul>
         </div>
