@@ -26,7 +26,7 @@ class Database {
     }
 
     public function numRows() { 
-        mysqli_num_rows($this->response); 
+        return mysqli_num_rows($this->response); 
     }
 
     public function fetch() { 

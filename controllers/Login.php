@@ -4,24 +4,21 @@ require '../views/Login.php';
 require '../models/Users.php';
 
 session_start();
+$loginView = new Login();
 
 if( (!empty($_POST['email'])) && (!empty($_POST['password'])) ) {
-    // Validaciones
     $email = $_POST['email'];
     $password = $_POST['password'];
     // falta validar
 
-    $userModel = new Users();
-    $user =  $userModel->getUser($email, $password); 
-
-    if (mysqli_num_rows($user) == 1) {
-        $_SESSION['loged'] = true;
-        $fila = mysqli_fetch_assoc($user);
-        $_SESSION['name'] = $fila['name'];
+    $usersModel = new Users();
+    if( $usersModel->login($email, $password) ) { 
+        $loginView->failed_login = false; 
         header('Location: Home.php');
         exit;
+    } else { 
+        $loginView->failed_login = true; 
     }
 }
 
-$loginView = new Login();
 $loginView->render();
