@@ -40,6 +40,7 @@
 <style>
     #signup { 
         padding-top: 60px; 
+        padding-bottom: 40px; 
         min-height: calc(100vh - 108.91px);
         width: 100%; 
     }
