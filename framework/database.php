@@ -22,6 +22,7 @@ class Database {
         if(!$this->connection) $this->connect(); 
         $this->response = mysqli_query($this->connection, $query); 
         if(!$this->response) die(mysqli_error($this->connection) ." -- Query: " .$query); 
+        return $this->response; 
     }
 
     public function numRows() { 

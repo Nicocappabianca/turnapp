@@ -5,7 +5,7 @@ require '../models/Users.php';
 
 session_start();
 
-if(count($_POST) > 0) {
+if( (!empty($_POST['email'])) && (!empty($_POST['password'])) ) {
     // Validaciones
     $email = $_POST['email'];
     $password = $_POST['password'];

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <form action="../controllers/Login.php?email=<?=$email?>&password=<?=$password?>" method="post">
+            <form action="../controllers/Login.php" method="post">
                 <div class="form-group">
                     <label for="email">Dirección de Email</label>
                     <input type="email" class="form-control" name="email" placeholder="Ingrese email">
