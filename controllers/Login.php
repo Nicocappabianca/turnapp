@@ -22,15 +22,15 @@ if( (!empty($_POST['email'])) && (!empty($_POST['password'])) ) {
         } else { 
             $loginView->failed_login = true; 
         }
-    }
-
-    $usersModel = new Users();
-    if( $usersModel->login($email, $password) ) { 
-        $loginView->failed_login = false; 
-        header('Location: Home.php');
-        exit;
-    } else { 
-        $loginView->failed_login = true; 
+    } else {     
+        $usersModel = new Users();
+        if( $usersModel->login($email, $password) ) { 
+            $loginView->failed_login = false; 
+            header('Location: Home.php');
+            exit;
+        } else { 
+            $loginView->failed_login = true; 
+        }
     }
 }
 
