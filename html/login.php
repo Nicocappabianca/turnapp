@@ -16,6 +16,9 @@
                         <button type="submit" class="btn btn-success mt-3">Iniciar sesión</button>
                     </div>
                 </form>
+                <div class="d-flex justify-content-center mt-2">
+                    <span>¿No tiene cuenta?</span> <a class="link" href="../controllers/Signup.php">Registrarse</a>
+                </div>
             </div>
         </div>
     </div>

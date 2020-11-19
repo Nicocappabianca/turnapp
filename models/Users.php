@@ -21,4 +21,19 @@ class Users extends Model{
         }
         return $validUser; 
     }
+
+    public function signup($email, $password, $name, $surname) {
+        $validUser = false;
+        $this->db->query("SELECT * FROM users WHERE email='$email' LIMIT 1");
+
+        if($this->db->numRows() == 1) {
+            return;
+        } else {
+            $this->db->query("INSERT INTO users (name, surname, email, password)
+                                VALUES ($name, $surname, $email, $password)");
+            $validUser = true;
+            return $validUser;
+        }
+
+    }
 }
