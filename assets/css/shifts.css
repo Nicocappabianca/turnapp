@@ -9,10 +9,7 @@
 }
 #shifts .swiper-container { 
     height: 150px;
-}
-#shifts .swiper-wrapper { 
-    display: flex;
-    justify-content: center;
+    max-width: 100%;
 }
 #shifts .day-item { 
     width: 80px;
