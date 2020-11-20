@@ -22,4 +22,18 @@ class Companies extends Model{
         }
         return $validUser; 
     }
+
+    public function signup($name, $email, $password, $description, $url_image, $address) {
+        $validCompany = false;
+        $this->db->query("SELECT * FROM companies WHERE email='$email' LIMIT 1");
+
+        if($this->db->numRows() == 1) {
+            return $validCompany;
+        } else {
+            $this->db->query("INSERT INTO companies (name, email, password, description, url_image, address)
+                                VALUES ('$name', '$email', '$password', '$description', '$url_image', '$address')");
+            $validCompany = true;
+            return $validCompany;
+        }
+    }
 }

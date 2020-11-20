@@ -34,6 +34,5 @@ class Users extends Model{
             $validUser = true;
             return $validUser;
         }
-
     }
 }

@@ -18,8 +18,14 @@
                     </div>
                 </form>
                 <div class="d-flex justify-content-center mt-2">
-                    <span>¿No tiene cuenta?</span><a class="link ml-2" href="../controllers/Signup.php">Registrarse</a>
+                    <div>¿No tiene cuenta?</div>
                 </div>
+                    <div class="d-flex justify-content-center">
+                        <a class="link ml-2" href="../controllers/Signup.php">Registrarse como usuario</a>
+                    </div> 
+                    <div class="d-flex justify-content-center">
+                        <a class="link ml-2" href="../controllers/SignupCompany.php">Registrarse como empresa</a>
+                    </div>
             </div>
         </div>
     </div>
