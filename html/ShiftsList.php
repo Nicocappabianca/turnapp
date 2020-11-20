@@ -58,13 +58,16 @@
 
 <script>
 const shiftsSwiper = new Swiper('.swiper-container', {
-    slidesPerView: 4,
+    slidesPerView: 3.4,
     breakpoints: {
         768: {
-            slidesPerView: 6,
+            slidesPerView: 7.3,
         }, 
         992: {
-            slidesPerView: 8,
+            slidesPerView: 9.3,
+        }, 
+        1200: {
+            slidesPerView: 11.3,
         }
     }, 
 });

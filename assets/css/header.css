@@ -10,6 +10,11 @@
     border: none!important;
     background: transparent!important;
 }
+@media (min-width: 992px) { 
+    .navbar-toggler {
+        display: none!important;
+    } 
+}
 .navbar-toggler:focus { 
     outline: none;
 }

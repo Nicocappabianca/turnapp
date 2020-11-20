@@ -10,9 +10,13 @@
 #shifts .swiper-container { 
     height: 150px;
 }
+#shifts .swiper-wrapper { 
+    display: flex;
+    justify-content: center;
+}
 #shifts .day-item { 
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     background-color: #7feb7f;
     color: #000; 
     border-radius: 5px;
@@ -33,6 +37,7 @@
     margin: 0px;
 }
 #shifts .day-item > p {
+    font-size: 14px; 
     text-align: center;
     font-weight: 600;
     margin: 0px;
