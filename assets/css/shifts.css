@@ -7,6 +7,16 @@
     text-decoration: none;
     cursor: default;
 }
+#shifts .title { 
+    padding-top: 8px; 
+    font-size: 20px;
+}
+@media (min-width: 768px) { 
+    #shifts .title { 
+        padding-top: 10px; 
+        font-size: 24px;
+    }
+}
 #shifts .swiper-container { 
     height: 150px;
     max-width: 100%;

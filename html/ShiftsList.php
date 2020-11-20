@@ -35,6 +35,7 @@
 <section id="shifts">
     <div class="container">
         <?php if( count($this->days) > 0 ): ?>
+            <h4 class="title text-center mb-4">¡Reserva tu turno en <b><?= $this->companyName ?></b>!</h4>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <?php foreach($this->days as $day): ?>

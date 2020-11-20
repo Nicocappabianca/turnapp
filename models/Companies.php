@@ -9,6 +9,11 @@ class Companies extends Model{
         return $this->db->fetchAll(); 
     }
 
+    public function getCompany( $id ) { 
+        $this->db->query("SELECT * FROM companies WHERE id = '$id'"); 
+        return $this->db->fetch();
+    }
+
     public function login($email, $password) {
         $validUser = false; 
 
