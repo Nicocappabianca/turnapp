@@ -24,4 +24,9 @@ class Shifts extends Model{
         $this->db->query("SELECT * FROM shifts WHERE id_company = '$companyId' and date = '$date' and available = 1");
         return ($this->db->numRows() > 0) ? true : false; 
     }
+
+    public function getSchedules( $companyId, $date ) { 
+        $this->db->query("SELECT time FROM shifts WHERE id_company = '$companyId' and date = '$date' and available = 1 ORDER BY time ASC");
+        return $this->db->fetchAll();
+    }
 }
