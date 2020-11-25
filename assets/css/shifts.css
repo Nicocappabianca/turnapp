@@ -49,9 +49,34 @@
     font-weight: 600;
     margin: 0px;
 }
-#shifts a > .not-available { 
+#shifts span > .not-available { 
     background-color:#E8E8E8;
     color: #BEBEBE;
     pointer-events: none; 
     cursor: default;
+}
+#shifts .schedules-container { 
+    width: 100%; 
+    margin: 0 auto;
+    max-height: calc(100vh - 380px); 
+    overflow-y: auto;
+}
+#shifts .schedules-container::-webkit-scrollbar {
+    display: none;
+}
+#shifts .schedules-container {
+    -ms-overflow-style: none;   
+    scrollbar-width: none;  
+}
+#shifts .schedules-table { 
+    width: 100%;
+    margin: 0 auto;
+}
+#table-body td { 
+    display: flex; 
+    justify-content: space-between;
+    font-size: 20px; 
+}
+#table-body button { 
+    font-size: 14px;
 }

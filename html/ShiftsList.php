@@ -40,15 +40,20 @@
                 <div class="swiper-wrapper">
                     <?php foreach($this->days as $day): ?>
                         <div class="swiper-slide">
-                            <a href="#">
+                            <span <?= $day['available'] ? 'onclick="loadSchedules();"' : '' ?>>
                                 <div class="day-item <?= !$day['available'] ? 'not-available' : '' ?>">
                                     <h4><?= explode('.' , $day['date'])[0] ?></h4>
                                     <p><?= toMonth(explode('.' , $day['date'])[1]) ?></p>
                                 </div>
-                            </a>
+                            </span>
                         </div>
                     <?php endforeach; ?>
                 </div>
+            </div>
+            <div class="schedules-container">
+                <table class="schedules-table table">
+                    <tbody id="table-body"></tbody>
+                </table>
             </div>
         <?php else: ?>
             <h5 class="text-center pt-4"><div class="mb-2">😰</div>Parece que esta empresa aún no ha cargado sus turnos</h5>
@@ -56,6 +61,8 @@
         <?php endif; ?>
     </div>
 </section>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
 <script>
 const shiftsSwiper = new Swiper('.swiper-container', {
@@ -72,4 +79,34 @@ const shiftsSwiper = new Swiper('.swiper-container', {
         }
     }, 
 });
+
+const loadSchedules = () => { 
+    $('#table-body').empty(); 
+    $('#table-body').append('<p style="color: #0773BD; text-align: center; padding-top: 40px;">Cargando horarios disponibles...</p>');
+    $.ajax({
+        type:'GET', 
+        url: '../controllers/Schedules.php', 
+        success: function(res){
+            $('#table-body').empty(); 
+            let schedulesList = JSON.parse(res);
+            let newSchedules = '';
+
+            schedulesList.schedules.forEach(element => {
+                newSchedules += `<tr>
+                    <td>
+                        <b class="mr-1">${(element.time).split(':')[0]}:${(element.time).split(':')[1]}</b> hs.
+                        <button class="btn btn-success ml-auto">Reservar</button>
+                    </td>
+                </tr>`; 
+            });
+
+            $('#table-body').append(newSchedules);
+
+        }, 
+        error: function() {
+            $('#table-body').empty(); 
+            $('#table-body').append('<p style="color: #DF2E25; text-align: center; padding-top: 40px;">¡Error! No fue posible cargar los horarios.</p>');
+        },
+    });
+}
 </script>
