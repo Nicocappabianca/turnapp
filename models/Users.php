@@ -16,7 +16,8 @@ class Users extends Model{
         if($this->db->numRows() == 1) { 
             $userData = $this->db->fetch(); 
             $_SESSION['loged'] = true;
-            $_SESSION['username'] = $userData['name'];
+            $_SESSION['userName'] = $userData['name'];
+            $_SESSION['userId'] = $userData['id'];
             $validUser = true; 
         }
         return $validUser; 

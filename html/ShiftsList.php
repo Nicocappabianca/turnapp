@@ -65,6 +65,9 @@
 <!-- Jquery -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
+<!-- SweetAlert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <script>
 const shiftsSwiper = new Swiper('.swiper-container', {
     slidesPerView: 3.4,
@@ -101,7 +104,7 @@ const loadSchedules = (date) => {
                 newSchedules += `<tr>
                     <td>
                         <b class="mr-1">${(element.time).split(':')[0]}:${(element.time).split(':')[1]}</b> hs.
-                        <button class="btn btn-success ml-auto">Reservar</button>
+                        <button class="btn btn-success ml-auto" onClick="reserve(${element.id}, '${element.time}', '${date}')">Reservar</button>
                     </td>
                 </tr>`; 
             });
@@ -115,4 +118,33 @@ const loadSchedules = (date) => {
         },
     });
 }
+
+const reserve = (shiftId, time, date) => { 
+    date = date.split(".").reverse().join("."); 
+    swal({
+        title: "¿Deseas confirmar tu reserva?",
+        text: `Estás a punto de realizar una reserva en <?= $this->companyName ?>, para el ${date} a las ${(time).split(':')[0]}:${(time).split(':')[1]} hs.`,
+        buttons: ["Cancelar", "¡Confirmar!"],
+        dangerMode: true,
+    })
+    .then((confirmed) => {
+        if (confirmed) {
+            $.ajax({
+                type:'POST', 
+                url: '../controllers/Reserve.php', 
+                data: { 
+                    shiftId: shiftId, 
+                    userId: <?= $_SESSION['userId'] ?>, 
+                    companyId: <?= $this->companyId; ?>
+                }, 
+                success: function(res){
+                    swal("¡Tu reserva fue realizada correctamente!", {
+                        icon: "success",
+                    });
+                    location.reload();
+                }, 
+            }); 
+        }
+    });
+} 
 </script>

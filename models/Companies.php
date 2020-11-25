@@ -22,7 +22,7 @@ class Companies extends Model{
         if($this->db->numRows() == 1) { 
             $userData = $this->db->fetch(); 
             $_SESSION['loged'] = true;
-            $_SESSION['username'] = $userData['name'];
+            $_SESSION['companyName'] = $userData['name'];
             $validUser = true; 
         }
         return $validUser; 

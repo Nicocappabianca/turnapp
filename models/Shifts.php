@@ -29,4 +29,8 @@ class Shifts extends Model{
         $this->db->query("SELECT id, time FROM shifts WHERE id_company = '$companyId' and date = '$date' and available = 1 ORDER BY time ASC");
         return $this->db->fetchAll();
     }
+
+    public function disableShift( $companyId, $shiftId ) { 
+        $this->db->query("UPDATE shifts SET available = '0' WHERE id_company = '$companyId' and id = '$shiftId'"); 
+    }
 }
