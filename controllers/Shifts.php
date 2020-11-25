@@ -5,7 +5,7 @@ require '../models/Shifts.php';
 require '../models/Companies.php'; 
 
 $shiftsModel = new Shifts(); 
-$days = $shiftsModel->getAllDays($_GET['companyId']); 
+$days = $shiftsModel->getAvailableShifts($_GET['companyId']); 
 
 $companiesModel = new Companies(); 
 $company = $companiesModel->getCompany($_GET['companyId']);

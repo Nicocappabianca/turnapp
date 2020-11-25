@@ -40,8 +40,8 @@
                 <div class="swiper-wrapper">
                     <?php foreach($this->days as $day): ?>
                         <div class="swiper-slide">
-                            <span onclick="loadSchedules('<?= $day['date']; ?>');">
-                                <div class="day-item <?= !$day['available'] ? 'not-available' : '' ?>">
+                            <span>
+                                <div class="day-item <?= !$day['available'] ? 'not-available' : '' ?>" onclick="loadSchedules('<?= $day['date']; ?>');">
                                     <h4><?= explode('.' , $day['date'])[0] ?></h4>
                                     <p><?= toMonth(explode('.' , $day['date'])[1]) ?></p>
                                 </div>

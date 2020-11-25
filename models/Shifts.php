@@ -4,8 +4,8 @@
 
 class Shifts extends Model{
 
-    public function getAllDays( $companyId ) {
-        $this->db->query("SELECT * FROM shifts WHERE id_company = $companyId  ORDER BY date ASC");
+    public function getAvailableShifts( $companyId ) {
+        $this->db->query("SELECT * FROM shifts WHERE id_company = $companyId and date >= CURDATE() ORDER BY date ASC");
         $dates = $this->db->fetchAll();
         
         $days = array(); 
