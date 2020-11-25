@@ -13,4 +13,5 @@ $company = $companiesModel->getCompany($_GET['companyId']);
 $shiftsView = new ShiftsList();
 $shiftsView->days = $days; 
 $shiftsView->companyName = $company['name']; 
+$shiftsView->companyId = $company['id']; 
 $shiftsView->render();

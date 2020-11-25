@@ -3,7 +3,7 @@ require '../framework/fw.php';
 require '../models/Shifts.php';
 
 $shiftsModel = new Shifts(); 
-$schedules = $shiftsModel->getSchedules(1, '2020-11-15');
+$schedules = $shiftsModel->getSchedules($_GET['companyId'], $_GET['date']);
 
 $schedulesArray = []; 
 

@@ -40,7 +40,7 @@
                 <div class="swiper-wrapper">
                     <?php foreach($this->days as $day): ?>
                         <div class="swiper-slide">
-                            <span <?= $day['available'] ? 'onclick="loadSchedules();"' : '' ?>>
+                            <span onclick="loadSchedules('<?= $day['date']; ?>');">
                                 <div class="day-item <?= !$day['available'] ? 'not-available' : '' ?>">
                                     <h4><?= explode('.' , $day['date'])[0] ?></h4>
                                     <p><?= toMonth(explode('.' , $day['date'])[1]) ?></p>
@@ -81,12 +81,17 @@ const shiftsSwiper = new Swiper('.swiper-container', {
     }, 
 });
 
-const loadSchedules = () => { 
+const loadSchedules = (date) => {
+    date = date.split(".").reverse().join("."); 
     $('#table-body').empty(); 
     $('#table-body').append('<p style="color: #0773BD; text-align: center; padding-top: 40px;">Cargando horarios disponibles...</p>');
     $.ajax({
         type:'GET', 
         url: '../controllers/Schedules.php', 
+        data: { 
+            companyId: <?= $this->companyId; ?>, 
+            date: date
+        }, 
         success: function(res){
             $('#table-body').empty(); 
             let schedulesList = JSON.parse(res);
