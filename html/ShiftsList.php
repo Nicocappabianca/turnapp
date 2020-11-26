@@ -125,7 +125,6 @@ const reserve = (shiftId, time, date) => {
         title: "¿Deseas confirmar tu reserva?",
         text: `Estás a punto de realizar una reserva en <?= $this->companyName ?>, para el ${date} a las ${(time).split(':')[0]}:${(time).split(':')[1]} hs.`,
         buttons: ["Cancelar", "¡Confirmar!"],
-        dangerMode: true,
     })
     .then((confirmed) => {
         if (confirmed) {
