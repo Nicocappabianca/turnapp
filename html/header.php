@@ -30,6 +30,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-lg-auto">
+                <li class="nav-item <?= isset($_SESSION['isAdmin']) ? 'd-block' : 'd-none'; ?>">
+                    <a class="nav-link text-white" href="./Admin.php">Administrador</a>
+                </li>
                 <li class="nav-item <?= isset($_SESSION['loged']) ? 'd-block' : 'd-none'; ?>">
                     <a class="nav-link text-white" href="./Reservations.php">Mis reservas</a>
                 </li>
