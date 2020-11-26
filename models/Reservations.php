@@ -15,4 +15,12 @@ class Reservations extends Model{
     public function postReservation( $userId, $shiftId ) { 
         return $this->db->query( "INSERT INTO reservations (id_user, id_shift) VALUES ('$userId', '$shiftId')" ); 
     }
+
+    public function getAllByCompany($companyId) {
+        $this->db->query("SELECT * FROM reservations
+        JOIN users on reservations.id_user = $companyId
+        JOIN shifts on shifts.id = reservations.id_shift
+        JOIN companies on shifts.id_company = companies.id");
+return $this->db->fetchAll(); 
+    }
 }

@@ -23,6 +23,8 @@ class Companies extends Model{
             $userData = $this->db->fetch(); 
             $_SESSION['loged'] = true;
             $_SESSION['companyName'] = $userData['name'];
+            $_SESSION['companyId'] = $userData['id'];
+            $_SESSION['isAdmin'] = true;
             $validUser = true; 
         }
         return $validUser; 
