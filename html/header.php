@@ -23,21 +23,24 @@
         <a class="navbar-brand" href="./Home.php">
             <img src="../assets/icons/logo.png" width="80" class="d-inline-block align-top" alt="TurnApp">
         </a>
-        <button class="navbar-toggler collapsed ml-auto <?= isset($_SESSION['loged']) ? 'd-block' : 'd-none'; ?>" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar top-bar"></span>
             <span class="icon-bar middle-bar"></span>
             <span class="icon-bar bottom-bar"></span>				
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-lg-auto">
-                <li class="nav-item">
-                    <a class="nav-link text-white <?= isset($_SESSION['loged']) ? 'd-block' : 'd-none'; ?>" href="./Reservations.php">Mis reservas</a>
+                <li class="nav-item <?= isset($_SESSION['loged']) ? 'd-block' : 'd-none'; ?>">
+                    <a class="nav-link text-white" href="./Reservations.php">Mis reservas</a>
                 </li>
-                <li class="nav-item ml-lg-3">
-                    <a class="nav-link text-white <?= isset($_SESSION['loged']) ? 'd-block' : 'd-none'; ?>" href="./Profile.php">Perfil</a>
+                <li class="nav-item ml-lg-3 <?= isset($_SESSION['loged']) ? 'd-block' : 'd-none'; ?>">
+                    <a class="nav-link text-white" href="./Profile.php">Perfil</a>
                 </li>
-                <li class="nav-item ml-lg-3">
-                    <a class="nav-link text-white <?= isset($_SESSION['loged']) ? 'd-block' : 'd-none'; ?>" href="./Logout.php">Cerrar sesión</a>
+                <li class="nav-item ml-lg-3 <?= isset($_SESSION['loged']) ? 'd-block' : 'd-none'; ?>">
+                    <a class="nav-link text-white" href="./Logout.php">Cerrar sesión</a>
+                </li>
+                <li class="nav-item <?= !isset($_SESSION['loged']) ? 'd-block' : 'd-none'; ?>">
+                    <a class="nav-link text-white" href="./Login.php">Iniciar sesión</a>
                 </li>
             </ul>
         </div>
