@@ -50,3 +50,11 @@
 #reservations .table-responsive::-webkit-scrollbar-thumb {
     background: #888;
 }
+#reservations table td { 
+    font-size: 14px;
+}
+@media (min-width: 768px) { 
+    #reservations table td { 
+        font-size: 16px;
+    }   
+}
