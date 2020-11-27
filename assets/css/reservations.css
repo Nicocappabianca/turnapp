@@ -37,3 +37,16 @@
     max-height: calc(100vh - 380px); 
     overflow-y: auto;
 }
+#reservations .table-responsive { 
+    max-height: calc(100vh - 285px); 
+    overflow-y: auto;
+}
+#reservations .table-responsive::-webkit-scrollbar {
+    width: 5px;
+}
+#reservations .table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+#reservations .table-responsive::-webkit-scrollbar-thumb {
+    background: #888;
+}

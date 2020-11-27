@@ -36,6 +36,22 @@
                                         <td><?= $nextReservation['address'] ?></td>
                                     </tr>
                                 <?php endforeach; ?>
+                                <?php foreach($this->nextReservations as $nextReservation): ?>
+                                    <tr>
+                                        <td><?= $nextReservation['name'] ?></td>
+                                        <td><?= explode('-' , $nextReservation['date'])[2] ?>/<?= explode('-' , $nextReservation['date'])[1] ?>/<?= explode('-' , $nextReservation['date'])[0] ?></td>
+                                        <td><?= explode(':' , $nextReservation['time'])[0] ?>:<?= explode(':' , $nextReservation['time'])[1] ?> hs.</td>
+                                        <td><?= $nextReservation['address'] ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                                <?php foreach($this->nextReservations as $nextReservation): ?>
+                                    <tr>
+                                        <td><?= $nextReservation['name'] ?></td>
+                                        <td><?= explode('-' , $nextReservation['date'])[2] ?>/<?= explode('-' , $nextReservation['date'])[1] ?>/<?= explode('-' , $nextReservation['date'])[0] ?></td>
+                                        <td><?= explode(':' , $nextReservation['time'])[0] ?>:<?= explode(':' , $nextReservation['time'])[1] ?> hs.</td>
+                                        <td><?= $nextReservation['address'] ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
