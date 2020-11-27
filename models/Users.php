@@ -3,9 +3,15 @@
 /* Companies MODEL */ 
 
 class Users extends Model{
+    
     public function getAll() {
         $this->db->query("SELECT * FROM companies");
         return $this->db->fetchAll(); 
+    }
+
+    public function getUserById( $id ) { 
+        $this->db->query("SELECT * FROM users WHERE id = '$id'");
+        return $this->db->fetch(); 
     }
 
     public function login($email, $password) {

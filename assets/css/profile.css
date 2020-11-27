@@ -1,0 +1,30 @@
+#profile { 
+    min-height: calc(100vh - 108.91px);
+    font-family: 'Lato', sans-serif;
+    padding-top: 40px;
+}
+
+#profile .profile-picture { 
+    width: 100px;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 2px solid #BEBEBE;
+
+}
+#profile .profile-info { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#profile h2 { 
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+#profile .profile-email { 
+    color: #808080;
+    margin: 0px;
+}
+#profile .profile-tooltip { 
+    width: fit-content; 
+    margin-left: auto; 
+}
