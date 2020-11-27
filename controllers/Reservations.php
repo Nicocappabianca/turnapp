@@ -3,9 +3,16 @@ require '../framework/fw.php';
 require '../views/ReservationsList.php'; 
 require '../models/Reservations.php'; 
 
-$reservationsModel = new Reservations(); 
-$reservations = $reservationsModel->getAll(); 
+if(!isset($_SESSION)) session_start();
 
-$reservationsView = new ReservationsList();
-$reservationsView->reservations = $reservations; 
-$reservationsView->render();
+if( isset($_SESSION['userId']) ) { 
+    $reservationsModel = new Reservations(); 
+
+    $pastReservations = $reservationsModel->getPastReservations($_SESSION['userId']);
+    $nextReservations = $reservationsModel->getNextReservations($_SESSION['userId']); 
+
+    $reservationsView = new ReservationsList();
+    $reservationsView->pastReservations = $pastReservations;
+    $reservationsView->nextReservations = $nextReservations; 
+    $reservationsView->render();
+}

@@ -1,0 +1,39 @@
+#reservations { 
+    padding-top: 20px; 
+    min-height: calc(100vh - 108.91px);
+    font-family: 'Lato', sans-serif;
+}
+@media (min-width: 768px) { 
+    #reservations { 
+        padding-top: 40px;
+    }
+}
+#reservations > h1 { 
+    font-weight: 800;
+    font-size: 22px;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+}
+@media (min-width: 992px) {
+    #reservations > h1 { 
+        padding-bottom: 0px;
+    }
+}
+#reservations a { 
+    text-decoration: none;
+}
+.no-reservations > h5{ 
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 20px;
+}
+.no-reservations > p { 
+    margin: 0 0 5px 0;
+}
+#reservations table { 
+    width: 100%; 
+    text-align: left; 
+    max-height: calc(100vh - 380px); 
+    overflow-y: auto;
+}

@@ -4,11 +4,21 @@
 
 class Reservations extends Model{
 
-    public function getAll() {
+    public function getNextReservations( $userId ) {
         $this->db->query("SELECT * FROM reservations
                             JOIN users on reservations.id_user = users.id
                             JOIN shifts on shifts.id = reservations.id_shift
-                            JOIN companies on shifts.id_company = companies.id");
+                            JOIN companies on shifts.id_company = companies.id
+                            WHERE reservations.id_user = '$userId' and shifts.date >= CURDATE() ORDER BY date ASC");
+        return $this->db->fetchAll(); 
+    }
+
+    public function getPastReservations( $userId ) {
+        $this->db->query("SELECT * FROM reservations
+                            JOIN users on reservations.id_user = users.id
+                            JOIN shifts on shifts.id = reservations.id_shift
+                            JOIN companies on shifts.id_company = companies.id
+                            WHERE reservations.id_user = '$userId' and shifts.date < CURDATE() ORDER BY date ASC");
         return $this->db->fetchAll(); 
     }
 
@@ -21,6 +31,6 @@ class Reservations extends Model{
         JOIN users on reservations.id_user = $companyId
         JOIN shifts on shifts.id = reservations.id_shift
         JOIN companies on shifts.id_company = companies.id");
-return $this->db->fetchAll(); 
+        return $this->db->fetchAll(); 
     }
 }

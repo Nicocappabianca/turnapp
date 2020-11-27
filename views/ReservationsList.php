@@ -1,5 +1,6 @@
 <?php
 
 class ReservationsList extends View {
-    public $reservations;
+    public $nextReservations;
+    public $pastReservations;
 }

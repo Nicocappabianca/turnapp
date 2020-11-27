@@ -58,6 +58,9 @@
         <?php else: ?>
             <h5 class="text-center pt-4"><div class="mb-2">😰</div>Parece que esta empresa aún no ha cargado sus turnos</h5>
             <p class="text-center">Te recomendamos que vuelvas más tarde.</p>
+            <div class="text-center">
+                <a href="../controllers/Home.php">Ir al inicio</a>
+            </div>
         <?php endif; ?>
     </div>
 </section>
