@@ -6,5 +6,6 @@
     unset($_SESSION['isAdmin']);
     unset($_SESSION['companyName']);
     unset($_SESSION['companyId']);
+    unset($_SESSION['companyImg']);
     header('Location: Login.php');
 ?>

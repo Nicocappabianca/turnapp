@@ -1,27 +1,80 @@
 <link rel="stylesheet" href="../assets/css/home.css">
 
 <div class="container">
-    <h1>Panel administrador de <?= $_SESSION['companyName'] ?> </h1>
+    <h1>Panel administrador de <?= $_SESSION['companyName'] ?></h1>
+    <img src="<?= $_SESSION['companyImg'] ?>" alt="Company image">
 </div>
 
-<div class="container mt-4">
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <?php foreach($this->reservations as $reservation): ?>
-                    <div class="swiper-slide company-item">
-                        <div class="card">
-                            <img class="card-img-top" src="<?= $reservation['url_image']?>" alt="<?= $reservation['name'] ?>">
-                            <div class="card-body">
-                                <h5 class="card-title"><?= $reservation['name'] ?></h5>
-                                <p class="card-text"><?= $reservation['description'] ?></p>
-                                <a href="../controllers/Shifts.php?companyId=<?= $reservation['id'] ?>" class="btn btn-success btn-reserve">Reservar ahora</a>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach?>
+<section id="reservations" class="text-center">
+    <h1>Mis reservas</h1>
+    <div class="container">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Próximas</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Pasadas</a>
             </div>
-            <div class="swiper-pagination"></div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <?php if(count($this->reservations) > 0): ?>
+                    <div class="table-responsive">   
+                        <table class="table">
+                            <tr>
+                                <th scope="col">Empresa</th>
+                                <th scope="col">Día</th>
+                                <th scope="col">Horario</th>
+                                <th scope="col">Dirección</th>
+                            </tr>
+                            <tbody>
+                                <?php foreach($this->reservations as $reservation): ?>
+                                    <tr>
+                                        <td><?= $reservation['name'] ?></td>
+                                        <td><?= explode('-' , $reservation['date'])[2] ?>/<?= explode('-' , $reservation['date'])[1] ?>/<?= explode('-' , $reservation['date'])[0] ?></td>
+                                        <td><?= explode(':' , $reservation['time'])[0] ?>:<?= explode(':' , $reservation['time'])[1] ?> hs.</td>
+                                        <td><?= $reservation['address'] ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                <?php else: ?>
+                    <div class="no-reservations">
+                        <h5>Nada por aquí 🤷‍♂️</h5>
+                        <p>Parece que no tenes reservas</p>
+                        <a href="../controllers/Home.php">Ir a crear turnos</a>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <?php if(count($this->pastReservations) > 0): ?>
+                    <div class="table-responsive">   
+                        <table class="table">
+                            <tr>
+                                <th scope="col">Empresa</th>
+                                <th scope="col">Día</th>
+                                <th scope="col">Horario</th>
+                                <th scope="col">Dirección</th>
+                            </tr>
+                            <tbody>
+                                <?php foreach($this->pastReservations as $pastReservation): ?>
+                                    <tr>
+                                        <td><?= $pastReservation['name'] ?></td>
+                                        <td><?= explode('-' , $pastReservation['date'])[2] ?>/<?= explode('-' , $pastReservation['date'])[1] ?>/<?= explode('-' , $pastReservation['date'])[0] ?></td>
+                                        <td><?= explode(':' , $pastReservation['time'])[0] ?>:<?= explode(':' , $pastReservation['time'])[1] ?> hs.</td>
+                                        <td><?= $pastReservation['address'] ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                <?php else: ?>
+                    <div class="no-reservations">
+                        <h5>Nada por aquí 🤷‍♂️</h5>
+                        <p>Por el momento no tenes reservas pasadas.</p>
+                        <a href="../controllers/Home.php">Ir al inicio</a>
+                    </div>
+                <?php endif; ?>
+            </div>
         </div>
-    </div>
-
-</div>
+    </div>  
+</section>

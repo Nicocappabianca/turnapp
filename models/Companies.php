@@ -27,6 +27,7 @@ class Companies extends Model{
             $_SESSION['loged'] = true;
             $_SESSION['companyName'] = $userData['name'];
             $_SESSION['companyId'] = $userData['id'];
+            $_SESSION['companyImg'] = $userData['url_image'];
             $_SESSION['isAdmin'] = true;
             $validUser = true; 
         }

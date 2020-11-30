@@ -14,10 +14,8 @@ if(!isset($_SESSION['isAdmin'])) {
     header('Location: Home.php');
     exit;
 }
-
 $reservationsModel = new Reservations(); 
 $reservations = $reservationsModel->getAllByCompany($_SESSION['companyId']); 
-// $reservations = $reservationsModel->getAll(); 
 
 $adminView = new Admin();
 $adminView->reservations = $reservations; 

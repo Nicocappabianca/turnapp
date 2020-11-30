@@ -28,9 +28,11 @@ class Reservations extends Model{
 
     public function getAllByCompany($companyId) {
         $this->db->query("SELECT * FROM reservations
-        JOIN users on reservations.id_user = $companyId
+        JOIN users on reservations.id_user = users.id
         JOIN shifts on shifts.id = reservations.id_shift
-        JOIN companies on shifts.id_company = companies.id");
+        JOIN companies on shifts.id_company = companies.id
+        WHERE reservations.id_user = $companyId
+        ORDER BY shifts.date ASC");
         return $this->db->fetchAll(); 
     }
 }
