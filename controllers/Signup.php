@@ -12,8 +12,6 @@ if( (!empty($_POST['email'])) && (!empty($_POST['password'])) && (!empty($_POST[
     $name = $_POST['name'];
     $surname = $_POST['surname'];
     $confirmPassword = $_POST['confirm-password'];
-    // falta validar
-
 
     $usersModel = new Users();
 

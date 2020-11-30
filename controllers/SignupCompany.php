@@ -14,9 +14,7 @@ if( (!empty($_POST['name'])) && (!empty($_POST['email'])) && (!empty($_POST['pas
     $url_image = $_POST['url_image'];
     $address = $_POST['address'];
     $confirmPassword = $_POST['confirm-password'];
-    // falta validar
-
-
+    
     $companiesModel = new Companies();
 
     if ($password != $confirmPassword) {
