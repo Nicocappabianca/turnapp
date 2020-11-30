@@ -1,16 +1,3 @@
-<?php
-    if(!isset($_SESSION)) session_start();
-    
-    if(!isset($_SESSION['loged'])) {
-        header('Location: Login.php');
-        exit;
-    }
-    if(!isset($_SESSION['isAdmin'])) {
-        header('Location: Home.php');
-        exit;
-    }
-?>
-
 <link rel="stylesheet" href="../assets/css/home.css">
 
 <div class="container">
