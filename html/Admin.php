@@ -51,7 +51,6 @@
                         <h1>Turnos libres</h1>
                         <table class="table">
                             <tr>
-                                <th scope="col">Nombre y apellido</th>
                                 <th scope="col">Día</th>
                                 <th scope="col">Horario</th>
                                 <th scope="col">Precio</th>
@@ -59,7 +58,6 @@
                             <tbody>
                                 <?php foreach($this->reservationsAvailable as $reservation): ?>
                                     <tr>
-                                        <td><?= $reservation['name'] . ' ' .  $reservation['surname'] ?></td>
                                         <td><?= explode('-' , $reservation['date'])[2] ?>/<?= explode('-' , $reservation['date'])[1] ?>/<?= explode('-' , $reservation['date'])[0] ?></td>
                                         <td><?= explode(':' , $reservation['time'])[0] ?>:<?= explode(':' , $reservation['time'])[1] ?> hs.</td>
                                         <td><?= $reservation['price'] ?></td>

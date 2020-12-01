@@ -27,22 +27,20 @@ class Reservations extends Model{
     }
 
     public function getAllByCompanyAvailable($companyId) {
-        $this->db->query("SELECT * FROM reservations
-        JOIN shifts on shifts.id = reservations.id_shift
-        JOIN companies on shifts.id_company = companies.id
-        JOIN users on reservations.id_user = users.id
-        WHERE companies.id = $companyId and shifts.available = '1'
-        ORDER BY shifts.date ASC");
+        $this->db->query("SELECT * FROM shifts
+                            JOIN companies on shifts.id_company = companies.id
+                            WHERE companies.id = $companyId and shifts.available = '1'
+                            ORDER BY shifts.date ASC");
         return $this->db->fetchAll(); 
     }
 
     public function getAllByCompanyBusy($companyId) {
         $this->db->query("SELECT * FROM reservations
-        JOIN shifts on shifts.id = reservations.id_shift
-        JOIN companies on shifts.id_company = companies.id
-        JOIN users on reservations.id_user = users.id
-        WHERE companies.id = $companyId and shifts.available = '0'
-        ORDER BY shifts.date ASC");
+                            JOIN shifts on shifts.id = reservations.id_shift
+                            JOIN companies on shifts.id_company = companies.id
+                            JOIN users on reservations.id_user = users.id
+                            WHERE companies.id = $companyId and shifts.available = '0'
+                            ORDER BY shifts.date ASC");
         return $this->db->fetchAll(); 
     }
 }
