@@ -11,4 +11,6 @@ if( (!empty($_POST['date'])) && (!empty($_POST['time'])) && (!empty($_POST['pric
     
     $shiftsModel = new Shifts(); 
     $shiftsModel->createShift($_SESSION['companyId'], $date, $time, $price); 
+
+    header('Location: Admin.php');
 }

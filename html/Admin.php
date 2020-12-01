@@ -128,7 +128,7 @@
                     <input type="price" class="form-control" name="price" placeholder="Ingrese precio">
                 </div>
                 <div class="text-center mb-4">
-                    <button type="submit" class="btn btn-success mt-3">Iniciar sesión</button>
+                    <button type="submit" class="btn btn-success mt-3">Crear turno</button>
                 </div>
             </form>
         </div>
