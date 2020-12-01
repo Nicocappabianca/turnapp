@@ -111,7 +111,28 @@
 </section>
 
 <section>
-    <div class="container">
-        <button class="btn btn-primary">Agregar turno</button>
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+        <h2>Crear turno</h2>
+            <form action="../controllers/CreateShift.php" method="post">
+                <div class="form-group">
+                    <label for="date">Fecha</label>
+                    <input type="date" class="form-control" name="date" placeholder="Ingrese fecha">
+                </div>
+                <label for="time">Hora:</label>
+                <select name="time">
+                    <?php foreach($this->schedules as $schedule): ?>
+                        <option value="<?= $schedule ?>"><?= $schedule ?></option> 
+                    <?php endforeach; ?>
+                </select>
+                <div class="form-group">
+                    <label for="price">Precio</label>
+                    <input type="price" class="form-control" name="price" placeholder="Ingrese precio">
+                </div>
+                <div class="text-center mb-4">
+                    <button type="submit" class="btn btn-success mt-3">Iniciar sesión</button>
+                </div>
+            </form>
+        </div>
     </div>
 </section>

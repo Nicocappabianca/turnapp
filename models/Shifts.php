@@ -33,4 +33,9 @@ class Shifts extends Model{
     public function disableShift( $companyId, $shiftId ) { 
         $this->db->query("UPDATE shifts SET available = '0' WHERE id_company = '$companyId' and id = '$shiftId'"); 
     }
+
+    public function createShift($companyId, $date, $time, $price) {
+        return $this->db->query( "INSERT INTO shifts (id_company, date, time, available, price) 
+        VALUES ('$companyId', '$date', '$time', '1', '$price')" ); 
+    }
 }
