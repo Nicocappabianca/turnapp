@@ -1,6 +1,7 @@
 <?php
 
 class Admin extends View {
-    public $reservations;
+    public $reservationsAvailable;
+    public $reservationsBusy;
     public $company;
 }

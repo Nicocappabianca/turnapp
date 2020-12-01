@@ -15,8 +15,10 @@ if(!isset($_SESSION['isAdmin'])) {
     exit;
 }
 $reservationsModel = new Reservations(); 
-$reservations = $reservationsModel->getAllByCompany($_SESSION['companyId']); 
+$reservationsAvailable = $reservationsModel->getAllByCompanyAvailable($_SESSION['companyId']); 
+$reservationsBusy = $reservationsModel->getAllByCompanyBusy($_SESSION['companyId']); 
 
 $adminView = new Admin();
-$adminView->reservations = $reservations; 
+$adminView->reservationsAvailable = $reservationsAvailable; 
+$adminView->reservationsBusy = $reservationsBusy; 
 $adminView->render();
