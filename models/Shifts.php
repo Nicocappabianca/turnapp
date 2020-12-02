@@ -35,6 +35,11 @@ class Shifts extends Model{
     }
 
     public function createShift($companyId, $date, $time) {
+        /* data sanitization */
+        $companyId = $this->db->escapeWildcards($this->db->escape($companyId)); 
+        $date = $this->db->escapeWildcards($this->db->escape($date));
+        $time = $this->db->escapeWildcards($this->db->escape($time));
+
         return $this->db->query( "INSERT INTO shifts (id_company, date, time, available) 
         VALUES ('$companyId', '$date', '$time', '1')" ); 
     }
