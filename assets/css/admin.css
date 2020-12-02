@@ -29,7 +29,7 @@
     display: block; 
     width: 100%;
 }
-@media (min-width: 768px) {  
+@media (min-width: 992px) {  
     #new-shift .form-content { 
         width: 100%;
         display: flex;
@@ -47,3 +47,16 @@
     color: #808080;
 }
 
+#new-shift #date-error { 
+    color: #FF0000; 
+    font-size: 12px; 
+    font-weight: 600; 
+    position: absolute;
+}
+#new-shift .btn-disabled { 
+    background-color:#E8E8E8;
+    color: #BEBEBE;
+    pointer-events: none; 
+    cursor: not-allowed;
+    border-color: #E8E8E8;
+}
