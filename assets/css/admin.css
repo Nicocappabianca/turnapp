@@ -40,6 +40,24 @@
         width: 150px;
     }
 }
+#admin .table-responsive::-webkit-scrollbar {
+    width: 5px;
+}
+#admin .table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+#admin .table-responsive::-webkit-scrollbar-thumb {
+    background: #888;
+}
+#admin table td { 
+    font-size: 14px;
+}
+@media (min-width: 768px) { 
+    #admin .table-responsive { 
+        max-height: calc(100vh - 285px); 
+        overflow-y: auto;
+    }
+}
 #new-shift h2 { 
     text-transform: uppercase;
     font-weight: 600;
