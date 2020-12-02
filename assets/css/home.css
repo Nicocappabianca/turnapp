@@ -48,3 +48,10 @@
     width: 150px;
     margin: 0 auto;
 }
+#home .btn-disabled { 
+    background-color:#E8E8E8;
+    color: #BEBEBE;
+    pointer-events: none; 
+    cursor: not-allowed;
+    border-color: #E8E8E8;
+}

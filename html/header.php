@@ -36,7 +36,7 @@
                 <li class="nav-item <?= isset($_SESSION['loged']) && !isset($_SESSION['isAdmin']) ? 'd-block' : 'd-none'; ?>">
                     <a class="nav-link text-white" href="./Reservations.php">Mis reservas</a>
                 </li>
-                <li class="nav-item ml-lg-3 <?= isset($_SESSION['loged']) ? 'd-block' : 'd-none'; ?>">
+                <li class="nav-item ml-lg-3 <?= isset($_SESSION['loged']) && !isset($_SESSION['isAdmin']) ? 'd-block' : 'd-none'; ?>">
                     <a class="nav-link text-white" href="./Profile.php">Perfil</a>
                 </li>
                 <li class="nav-item ml-lg-3 <?= isset($_SESSION['loged']) ? 'd-block' : 'd-none'; ?>">

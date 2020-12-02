@@ -5,6 +5,12 @@
         header('Location: Login.php');
         exit;
     }
+    
+    if(isset($_SESSION['isAdmin'])) { 
+        header('Location: Admin.php');
+        exit;
+    }
+
 ?>
 
 <link rel="stylesheet" href="../assets/css/shifts.css">
