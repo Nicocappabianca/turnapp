@@ -1,23 +1,26 @@
-<link rel="stylesheet" href="../assets/css/home.css">
+<link rel="stylesheet" href="../assets/css/admin.css">
 
-<div class="container">
-    <h1>Panel administrador de <?= $_SESSION['companyName'] ?></h1>
-    <img src="<?= $_SESSION['companyImg'] ?>" alt="Company image">
-</div>
-
-<section id="reservations" class="text-center">
+<section id="admin">
     <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 offset-md-3 col-md-2 text-center text-md-right">
+                <img class="profile-picture" src="<?= $_SESSION['companyImg'] ?>" alt="<?= $_SESSION['companyName'] ?>">
+            </div>
+            <div class="col-12 col-md-6 text-center text-md-left pt-3 pt-lg-0 profile-info">
+                <h2><?= $_SESSION['companyName'] ?></h2>
+                <p class="subtitle">Panel de administrador</p>
+            </div>
+        </div>
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Próximas</a>
-                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Pasadas</a>
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Reservas</a>
+                <a class="nav-item nav-link" id="nav-admin-tab" data-toggle="tab" href="#nav-admin" role="tab" aria-controls="nav-admin" aria-selected="false">Turnos disponibles</a>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                 <?php if(count($this->reservationsBusy) > 0): ?>
                     <div class="table-responsive">   
-                        <h1>Turnos reservados</h1>
                         <table class="table">
                             <tr>
                                 <th scope="col">Nombre y apellido</th>
@@ -45,10 +48,9 @@
                     </div>
                 <?php endif; ?>
             </div>
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="tab-pane fade" id="nav-admin" role="tabpanel" aria-labelledby="nav-admin-tab">
                 <?php if(count($this->reservationsAvailable) > 0): ?>
                     <div class="table-responsive">   
-                        <h1>Turnos libres</h1>
                         <table class="table">
                             <tr>
                                 <th scope="col">Día</th>
@@ -74,63 +76,39 @@
                     </div>
                 <?php endif; ?>
             </div>
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                <?php if(count($this->pastReservations) > 0): ?>
-                    <div class="table-responsive">   
-                        <table class="table">
-                            <tr>
-                                <th scope="col">Empresa</th>
-                                <th scope="col">Día</th>
-                                <th scope="col">Horario</th>
-                                <th scope="col">Dirección</th>
-                            </tr>
-                            <tbody>
-                                <?php foreach($this->pastReservations as $pastReservation): ?>
-                                    <tr>
-                                        <td><?= $pastReservation['name'] ?></td>
-                                        <td><?= explode('-' , $pastReservation['date'])[2] ?>/<?= explode('-' , $pastReservation['date'])[1] ?>/<?= explode('-' , $pastReservation['date'])[0] ?></td>
-                                        <td><?= explode(':' , $pastReservation['time'])[0] ?>:<?= explode(':' , $pastReservation['time'])[1] ?> hs.</td>
-                                        <td><?= $pastReservation['address'] ?></td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                <?php else: ?>
-                    <div class="no-reservations">
-                        <h5>Nada por aquí 🤷‍♂️</h5>
-                        <p>Por el momento no tenes reservas pasadas.</p>
-                        <a href="../controllers/Home.php">Ir al inicio</a>
-                    </div>
-                <?php endif; ?>
-            </div>
         </div>
     </div>  
 </section>
 
-<section>
-    <div class="row">
-        <div class="col-12 col-md-6 offset-md-3">
-        <h2>Crear turno</h2>
-            <form action="../controllers/CreateShift.php" method="post">
-                <div class="form-group">
-                    <label for="date">Fecha</label>
-                    <input type="date" class="form-control" name="date" placeholder="Ingrese fecha">
-                </div>
-                <label for="time">Hora:</label>
-                <select name="time">
-                    <?php foreach($this->schedules as $schedule): ?>
-                        <option value="<?= $schedule ?>"><?= $schedule ?></option> 
-                    <?php endforeach; ?>
-                </select>
-                <div class="form-group">
-                    <label for="price">Precio</label>
-                    <input type="price" class="form-control" name="price" placeholder="Ingrese precio">
-                </div>
-                <div class="text-center mb-4">
-                    <button type="submit" class="btn btn-success mt-3">Crear turno</button>
-                </div>
-            </form>
+<section id="new-shift" class="py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4 offset-md-4">
+                <h2 class="text-center pb-2">Nuevo turno</h2>
+                <form class="pt-3" action="../controllers/CreateShift.php" method="post">
+                    <div class="form-content">
+                        <div class="form-group">
+                            <label for="date">Fecha</label>
+                            <input type="date" class="form-control" name="date" placeholder="Ingrese fecha">
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Hora</label>
+                            <select class="form-control" name="time">
+                                <?php foreach($this->schedules as $schedule): ?>
+                                    <option value="<?= $schedule ?>"><?= $schedule ?></option> 
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="price">Precio</label>
+                        <input type="price" class="form-control" name="price" placeholder="Ingrese precio">
+                    </div> -->
+                    <div class="text-center mb-4">
+                        <button type="submit" class="btn btn-success mt-3">Crear turno</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </section>

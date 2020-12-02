@@ -1,0 +1,49 @@
+#admin { 
+    min-height: calc(100vh - 108.91px);
+    font-family: 'Lato', sans-serif; 
+    padding-top: 40px;
+}
+#admin .profile-picture { 
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #BEBEBE;
+}
+#admin .profile-info { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#admin .subtitle { 
+    color: #808080;
+    margin: 0px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+#admin h2 { 
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+#new-shift select { 
+    display: block; 
+    width: 100%;
+}
+@media (min-width: 768px) {  
+    #new-shift .form-content { 
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    #new-shift select { 
+        display: block; 
+        width: 150px;
+    }
+}
+#new-shift h2 { 
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 24px;
+    color: #808080;
+}
+
