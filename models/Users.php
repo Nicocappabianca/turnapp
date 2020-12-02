@@ -17,7 +17,7 @@ class Users extends Model{
     public function login($email, $password) {
         $validUser = false; 
 
-        // data sanitization
+        /* data sanitization */
         $email = $this->db->escapeWildcards($this->db->escape($email)); 
 
         $this->db->query("SELECT * FROM users WHERE email='$email' and password='$password' LIMIT 1");
@@ -35,7 +35,7 @@ class Users extends Model{
     public function signup($email, $password, $name, $surname) {
         $validUser = false;
 
-        // data sanitization
+        /* data sanitization */
         $email = $this->db->escapeWildcards($this->db->escape($email)); 
         $name = $this->db->escapeWildcards($this->db->escape($name)); 
         $surname = $this->db->escapeWildcards($this->db->escape($surname)); 
