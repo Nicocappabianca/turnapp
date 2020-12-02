@@ -52,11 +52,9 @@
 #admin table td { 
     font-size: 14px;
 }
-@media (min-width: 768px) { 
-    #admin .table-responsive { 
-        max-height: calc(100vh - 285px); 
-        overflow-y: auto;
-    }
+#admin .table-responsive { 
+    max-height: calc(100vh - 285px); 
+    overflow-y: auto;
 }
 #new-shift h2 { 
     text-transform: uppercase;
