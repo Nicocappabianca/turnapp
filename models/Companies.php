@@ -17,7 +17,7 @@ class Companies extends Model{
     public function login($email, $password) {
         $validUser = false; 
 
-        // data sanitization
+        /* data sanitization */
         $email = $this->db->escapeWildcards($this->db->escape($email)); 
 
         $this->db->query("SELECT * FROM companies WHERE email='$email' and password='$password' LIMIT 1");
@@ -37,7 +37,7 @@ class Companies extends Model{
     public function signup($name, $email, $password, $description, $url_image, $address) {
         $validCompany = false;
 
-        // data sanitization
+        /* data sanitization */
         $name = $this->db->escapeWildcards($this->db->escape($name)); 
         $email = $this->db->escapeWildcards($this->db->escape($email)); 
         $description = $this->db->escapeWildcards($this->db->escape($description)); 
