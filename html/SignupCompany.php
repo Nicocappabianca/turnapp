@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6 offset-md-3">
-                <form action="../controllers/SignupCompany.php" method="post">
+                <form action="registrar-empresa" method="post">
                     <div class="form-group">
                         <label for="name">Nombre</label>
                         <input type="text" class="form-control" name="name" placeholder="Ingrese nombre">
@@ -38,7 +38,7 @@
                     </div>
                 </form>
                 <div class="d-flex justify-content-center mt-2">
-                    <a class="link" href="../controllers/Login.php">Volver</a>
+                    <a class="link" href="iniciar-sesion">Volver</a>
                 </div>
             </div>
         </div>

@@ -7,11 +7,11 @@ require '../models/Companies.php';
 if(!isset($_SESSION)) session_start();
     
 if(!isset($_SESSION['loged'])) {
-    header('Location: Login.php');
+    header('Location: iniciar-sesion');
     exit;
 }
 if(!isset($_SESSION['isAdmin'])) {
-    header('Location: Home.php');
+    header('Location: home');
     exit;
 }
 

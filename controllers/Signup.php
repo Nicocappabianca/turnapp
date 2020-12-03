@@ -20,7 +20,7 @@ if( (!empty($_POST['email'])) && (!empty($_POST['password'])) && (!empty($_POST[
     } else {
         $password = sha1($password);
         if( $usersModel->signup($email, $password, $name, $surname) ) { 
-            header('Location: Login.php');
+            header('Location: iniciar-sesion');
             exit;
         } else { 
             $signupView->mail_in_use = true; 

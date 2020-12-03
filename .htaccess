@@ -1,0 +1,16 @@
+RewriteEngine on 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^home$ controllers/Home.php
+RewriteRule ^turnos-empresa-([0-9]+)$ controllers/Shifts.php?companyId=$1
+RewriteRule ^mis-reservas$ controllers/Reservations.php
+RewriteRule ^perfil$ controllers/Profile.php
+RewriteRule ^administrador$ controllers/Admin.php
+RewriteRule ^cerrar-sesion$ controllers/Logout.php
+RewriteRule ^iniciar-sesion$ controllers/Login.php
+RewriteRule ^registrarse$ controllers/Signup.php
+RewriteRule ^registrar-empresa$ controllers/SignupCompany.php
+RewriteRule ^crear-turno$ controllers/CreateShift.php
+RewriteRule ^horarios$ controllers/Schedules.php
+RewriteRule ^reservar$ controllers/Reserve.php

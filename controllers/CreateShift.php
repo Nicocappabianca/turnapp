@@ -10,11 +10,11 @@ if( (!empty($_POST['date'])) && (!empty($_POST['time'])) ) {
     $today = strtotime(date("Y-m-d",time()));
 
     if($date < $today){
-        header('Location: Admin.php');
+        header('Location: administrador');
     }
     
     $shiftsModel = new Shifts(); 
     $shiftsModel->createShift($_SESSION['companyId'], $date, $time); 
 
-    header('Location: Admin.php');
+    header('Location: administrador');
 }

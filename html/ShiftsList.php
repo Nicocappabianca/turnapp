@@ -2,18 +2,18 @@
     if(!isset($_SESSION)) session_start();
     
     if(!isset($_SESSION['loged'])) {
-        header('Location: Login.php');
+        header('Location: iniciar-sesion');
         exit;
     }
     
     if(isset($_SESSION['isAdmin'])) { 
-        header('Location: Admin.php');
+        header('Location: administrador');
         exit;
     }
 
 ?>
 
-<link rel="stylesheet" href="../assets/css/shifts.css">
+<link rel="stylesheet" href="/turnapp/assets/css/shifts.css">
 
 <!-- Swiper JS -->
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -65,7 +65,7 @@
             <h5 class="text-center pt-4"><div class="mb-2">😰</div>Parece que esta empresa aún no ha cargado sus turnos</h5>
             <p class="text-center">Te recomendamos que vuelvas más tarde.</p>
             <div class="text-center">
-                <a href="../controllers/Home.php">Ir al inicio</a>
+                <a href="home">Ir al inicio</a>
             </div>
         <?php endif; ?>
     </div>
@@ -99,7 +99,7 @@ const loadSchedules = (date) => {
     $('#table-body').append('<p style="color: #0773BD; text-align: center; padding-top: 40px;">Cargando horarios disponibles...</p>');
     $.ajax({
         type:'GET', 
-        url: '../controllers/Schedules.php', 
+        url: 'horarios', 
         data: { 
             companyId: <?= $this->companyId; ?>, 
             date: date
@@ -139,7 +139,7 @@ const reserve = (shiftId, time, date) => {
         if (confirmed) {
             $.ajax({
                 type:'POST', 
-                url: '../controllers/Reserve.php', 
+                url: 'reservar', 
                 data: { 
                     shiftId: shiftId, 
                     userId: <?= $_SESSION['userId'] ?>, 

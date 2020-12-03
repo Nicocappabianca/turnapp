@@ -1,11 +1,11 @@
 <?php
     if(!isset($_SESSION['loged'])) {
-        header('Location: Login.php');
+        header('Location: iniciar-sesion');
         exit;
     }
 ?>
 
-<link rel="stylesheet" href="../assets/css/reservations.css">
+<link rel="stylesheet" href="/turnapp/assets/css/reservations.css">
 
 <section id="reservations" class="text-center">
     <h1>Mis reservas</h1>
@@ -43,7 +43,7 @@
                     <div class="no-reservations">
                         <h5>Nada por aquí 🤷‍♂️</h5>
                         <p>Parece que no tenes reservas ¡Hace una!</p>
-                        <a href="../controllers/Home.php">Ir al inicio</a>
+                        <a href="home">Ir al inicio</a>
                     </div>
                 <?php endif; ?>
             </div>
@@ -73,7 +73,7 @@
                     <div class="no-reservations">
                         <h5>Nada por aquí 🤷‍♂️</h5>
                         <p>Por el momento no tenes reservas pasadas.</p>
-                        <a href="../controllers/Home.php">Ir al inicio</a>
+                        <a href="home">Ir al inicio</a>
                     </div>
                 <?php endif; ?>
             </div>

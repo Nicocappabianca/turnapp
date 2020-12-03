@@ -16,7 +16,7 @@ if( (!empty($_POST['email'])) && (!empty($_POST['password'])) ) {
         $companiesModel = new Companies();
         if( $companiesModel->login($email, $password) ) { 
             $loginView->failed_login = false; 
-            header('Location: Home.php');
+            header('Location: home');
             exit;
         } else { 
             $loginView->failed_login = true; 
@@ -25,7 +25,7 @@ if( (!empty($_POST['email'])) && (!empty($_POST['password'])) ) {
         $usersModel = new Users();
         if( $usersModel->login($email, $password) ) { 
             $loginView->failed_login = false; 
-            header('Location: Home.php');
+            header('Location: home');
             exit;
         } else { 
             $loginView->failed_login = true; 

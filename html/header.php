@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TurnApp</title>
-    <link rel="icon" type="image/png" href="../assets/icons/favicon.png">
+    <link rel="icon" type="image/png" href="/turnapp/assets/icons/favicon.png">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -16,12 +16,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
 
     <!-- Header styles -->
-    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="/turnapp/assets/css/header.css">
 </head>
 <header>
     <nav class="navbar navbar-expand-lg bg-dark px-lg-5 py-1">
-        <a class="navbar-brand" href="./Home.php">
-            <img src="../assets/icons/logo.png" width="80" class="d-inline-block align-top" alt="TurnApp">
+        <a class="navbar-brand" href="home">
+            <img src="/turnapp/assets/icons/logo.png" width="80" class="d-inline-block align-top" alt="TurnApp">
         </a>
         <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar top-bar"></span>
@@ -31,19 +31,19 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-lg-auto">
                 <li class="nav-item <?= isset($_SESSION['isAdmin']) ? 'd-block' : 'd-none'; ?>">
-                    <a class="nav-link text-white" href="./Admin.php">Administrador</a>
+                    <a class="nav-link text-white" href="administrador">Administrador</a>
                 </li>
                 <li class="nav-item <?= isset($_SESSION['loged']) && !isset($_SESSION['isAdmin']) ? 'd-block' : 'd-none'; ?>">
-                    <a class="nav-link text-white" href="./Reservations.php">Mis reservas</a>
+                    <a class="nav-link text-white" href="mis-reservas">Mis reservas</a>
                 </li>
                 <li class="nav-item ml-lg-3 <?= isset($_SESSION['loged']) && !isset($_SESSION['isAdmin']) ? 'd-block' : 'd-none'; ?>">
-                    <a class="nav-link text-white" href="./Profile.php">Perfil</a>
+                    <a class="nav-link text-white" href="perfil">Perfil</a>
                 </li>
                 <li class="nav-item ml-lg-3 <?= isset($_SESSION['loged']) ? 'd-block' : 'd-none'; ?>">
-                    <a class="nav-link text-white" href="./Logout.php">Cerrar sesión</a>
+                    <a class="nav-link text-white" href="cerrar-sesion">Cerrar sesión</a>
                 </li>
                 <li class="nav-item <?= !isset($_SESSION['loged']) ? 'd-block' : 'd-none'; ?>">
-                    <a class="nav-link text-white" href="./Login.php">Iniciar sesión</a>
+                    <a class="nav-link text-white" href="iniciar-sesion">Iniciar sesión</a>
                 </li>
             </ul>
         </div>

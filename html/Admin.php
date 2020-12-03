@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../assets/css/admin.css">
+<link rel="stylesheet" href="/turnapp/assets/css/admin.css">
 
 <section id="admin">
     <div class="container">
@@ -42,7 +42,6 @@
                     <div class="no-reservations">
                         <h5>Nada por aquí 🤷‍♂️</h5>
                         <p>Parece que no tenes turnos reservados</p>
-                        <a href="../controllers/Home.php">Ir a crear turnos</a>
                     </div>
                 <?php endif; ?>
             </div>
@@ -67,8 +66,7 @@
                 <?php else: ?>
                     <div class="no-reservations">
                         <h5>Nada por aquí 🤷‍♂️</h5>
-                        <p>Parece que no tenes turnos reservados</p>
-                        <a href="../controllers/Home.php">Ir a crear turnos</a>
+                        <p>Parece que no tenes turnos creados</p>
                     </div>
                 <?php endif; ?>
             </div>
@@ -81,7 +79,7 @@
         <div class="row">
             <div class="col-12 col-lg-4 offset-lg-4">
                 <h2 class="text-center pb-2">Nuevo turno</h2>
-                <form class="pt-3" action="../controllers/CreateShift.php" method="post">
+                <form class="pt-3" action="crear-turno" method="post">
                     <div class="form-content">
                         <div class="form-group">
                             <label for="date">Fecha</label>

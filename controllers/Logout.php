@@ -7,5 +7,5 @@
     unset($_SESSION['companyName']);
     unset($_SESSION['companyId']);
     unset($_SESSION['companyImg']);
-    header('Location: Login.php');
+    header('Location: iniciar-sesion');
 ?>

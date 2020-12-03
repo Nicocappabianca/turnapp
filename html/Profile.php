@@ -2,12 +2,12 @@
     if(!isset($_SESSION)) session_start();
     
     if(!isset($_SESSION['loged'])) {
-        header('Location: Login.php');
+        header('Location: iniciar-sesion');
         exit;
     }
 ?>
 
-<link rel="stylesheet" href="../assets/css/profile.css">
+<link rel="stylesheet" href="/turnapp/assets/css/profile.css">
 
 <section id="profile">
     <div class="container">

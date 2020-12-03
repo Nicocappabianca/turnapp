@@ -22,7 +22,7 @@ if( (!empty($_POST['name'])) && (!empty($_POST['email'])) && (!empty($_POST['pas
     } else {
         $password = sha1($password);
         if( $companiesModel->signup($name, $email, $password, $description, $url_image, $address) ) { 
-            header('Location: Login.php');
+            header('Location: iniciar-sesion');
             exit;
         } else { 
             $signupCompanyView->mail_in_use = true; 

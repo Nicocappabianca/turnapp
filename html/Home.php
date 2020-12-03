@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../assets/css/home.css">
+<link rel="stylesheet" href="/turnapp/assets/css/home.css">
 
 <!-- Swiper JS -->
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -17,7 +17,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"><?= $company['name'] ?></h5>
                                 <p class="card-text"><?= $company['description'] ?></p>
-                                <a href="../controllers/Shifts.php?companyId=<?= $company['id'] ?>" class="btn btn-success btn-reserve <?= isset($_SESSION['isAdmin']) ? 'btn-disabled' : '' ; ?>">Reservar ahora</a>
+                                <a href="turnos-empresa-<?= $company['id'] ?>" class="btn btn-success btn-reserve <?= isset($_SESSION['isAdmin']) ? 'btn-disabled' : '' ; ?>">Reservar ahora</a>
                             </div>
                         </div>
                     </div>

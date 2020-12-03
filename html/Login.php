@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6 offset-md-3">
-                <form action="../controllers/Login.php" method="post">
+                <form action="iniciar-sesion" method="post">
                     <div class="form-group">
                         <label for="email">Dirección de Email</label>
                         <input type="email" class="form-control" name="email" placeholder="Ingrese email">
@@ -21,10 +21,10 @@
                     <div>¿No tiene cuenta?</div>
                 </div>
                     <div class="d-flex justify-content-center">
-                        <a class="link ml-2" href="../controllers/Signup.php">Registrarse como usuario</a>
+                        <a class="link ml-2" href="registrarse">Registrarse como usuario</a>
                     </div> 
                     <div class="d-flex justify-content-center">
-                        <a class="link ml-2" href="../controllers/SignupCompany.php">Registrarse como empresa</a>
+                        <a class="link ml-2" href="registrar-empresa">Registrarse como empresa</a>
                     </div>
             </div>
         </div>
