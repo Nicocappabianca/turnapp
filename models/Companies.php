@@ -10,6 +10,8 @@ class Companies extends Model{
     }
 
     public function getCompany( $id ) { 
+        if( !is_numeric($id) ) die('Error: El ID de la empresa debe ser un número'); 
+
         $this->db->query("SELECT * FROM companies WHERE id = '$id'"); 
         return $this->db->fetch();
     }

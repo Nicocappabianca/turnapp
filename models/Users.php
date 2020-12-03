@@ -10,6 +10,8 @@ class Users extends Model{
     }
 
     public function getUserById( $id ) { 
+        if( !is_numeric($id) ) die('Error: El ID del usuario debe ser un número'); 
+
         $this->db->query("SELECT * FROM users WHERE id = '$id'");
         return $this->db->fetch(); 
     }
