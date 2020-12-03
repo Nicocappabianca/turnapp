@@ -7,7 +7,7 @@
     }
 ?>
 
-<link rel="stylesheet" href="/turnapp/assets/css/profile.css">
+<link rel="stylesheet" href="<?= $base_url ?>/assets/css/profile.css">
 
 <section id="profile">
     <div class="container">

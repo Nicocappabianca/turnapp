@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/turnapp/assets/css/admin.css">
+<link rel="stylesheet" href="<?= $base_url ?>/assets/css/admin.css">
 
 <section id="admin">
     <div class="container">

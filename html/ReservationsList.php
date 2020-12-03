@@ -5,7 +5,7 @@
     }
 ?>
 
-<link rel="stylesheet" href="/turnapp/assets/css/reservations.css">
+<link rel="stylesheet" href="<?= $base_url ?>/assets/css/reservations.css">
 
 <section id="reservations" class="text-center">
     <h1>Mis reservas</h1>

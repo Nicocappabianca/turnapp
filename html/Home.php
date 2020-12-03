@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/turnapp/assets/css/home.css">
+<link rel="stylesheet" href="<?= $base_url ?>/assets/css/home.css">
 
 <!-- Swiper JS -->
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">

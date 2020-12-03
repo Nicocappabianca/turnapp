@@ -13,7 +13,7 @@
 
 ?>
 
-<link rel="stylesheet" href="/turnapp/assets/css/shifts.css">
+<link rel="stylesheet" href="<?= $base_url ?>/assets/css/shifts.css">
 
 <!-- Swiper JS -->
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">

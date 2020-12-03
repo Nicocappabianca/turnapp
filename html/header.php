@@ -2,10 +2,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Base URL declaration -->
+    <?php $base_url = 'https://turnapp2020.herokuapp.com' /* use '/turnapp' for development */?>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TurnApp</title>
-    <link rel="icon" type="image/png" href="/turnapp/assets/icons/favicon.png">
+    <link rel="icon" type="image/png" href="<?= $base_url ?>/assets/icons/favicon.png">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -16,12 +19,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
 
     <!-- Header styles -->
-    <link rel="stylesheet" href="/turnapp/assets/css/header.css">
+    <link rel="stylesheet" href="<?= $base_url ?>/assets/css/header.css">
 </head>
 <header>
     <nav class="navbar navbar-expand-lg bg-dark px-lg-5 py-1">
         <a class="navbar-brand" href="home">
-            <img src="/turnapp/assets/icons/logo.png" width="80" class="d-inline-block align-top" alt="TurnApp">
+            <img src="<?= $base_url ?>/assets/icons/logo.png" width="80" class="d-inline-block align-top" alt="TurnApp">
         </a>
         <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar top-bar"></span>
