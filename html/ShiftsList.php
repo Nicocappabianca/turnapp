@@ -146,10 +146,13 @@ const reserve = (shiftId, time, date) => {
                     companyId: <?= $this->companyId; ?>
                 }, 
                 success: function(res){
-                    swal("¡Tu reserva fue realizada correctamente!", {
-                        icon: "success",
+                    swal({
+                        title: "¡Tu reserva fue realizada correctamente!",
+                        icon: "success"
+                    })
+                    .then((confirmed) => {
+                        location.reload();
                     });
-                    location.reload();
                 }, 
             }); 
         }
