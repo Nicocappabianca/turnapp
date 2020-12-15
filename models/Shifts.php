@@ -45,6 +45,13 @@ class Shifts extends Model{
     public function createShift($companyId, $date, $time) {
         if( !ctype_digit($companyId) ) die('Error: El ID de la empresa debe ser un número');  
 
+        /* date validation */
+        $year = explode('-', $date)[0];
+        $month = explode('-', $date)[1];
+        $day = explode('-', $date)[2]; 
+        
+        if( !checkdate($month, $day, $year) ) die('Error: La fecha ingresada es incorrecta'); 
+
         /* data sanitization */
         $companyId = $this->db->escapeWildcards($this->db->escape($companyId)); 
         $date = $this->db->escapeWildcards($this->db->escape($date));
