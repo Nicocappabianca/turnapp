@@ -5,7 +5,7 @@
 class Shifts extends Model{
 
     public function getAvailableShifts( $companyId ) {
-        if( !is_numeric($companyId) ) die('Error: El ID de la empresa debe ser un número');  
+        if( !ctype_digit($companyId) ) die('Error: El ID de la empresa debe ser un número');  
 
         $this->db->query("SELECT * FROM shifts WHERE id_company = $companyId and date >= CURDATE() ORDER BY date ASC");
         $dates = $this->db->fetchAll();
@@ -23,27 +23,27 @@ class Shifts extends Model{
     }
     
     private function isAvailable( $companyId, $date ) {
-        if( !is_numeric($companyId) ) die('Error: El ID de la empresa debe ser un número'); 
+        if( !ctype_digit($companyId) ) die('Error: El ID de la empresa debe ser un número'); 
 
         $this->db->query("SELECT * FROM shifts WHERE id_company = '$companyId' and date = '$date' and available = 1");
         return ($this->db->numRows() > 0) ? true : false; 
     }
 
     public function getSchedules( $companyId, $date ) { 
-        if( !is_numeric($companyId) ) die('Error: El ID de la empresa debe ser un número'); 
+        if( !ctype_digit($companyId) ) die('Error: El ID de la empresa debe ser un número'); 
 
         $this->db->query("SELECT id, time FROM shifts WHERE id_company = '$companyId' and date = '$date' and available = 1 ORDER BY time ASC");
         return $this->db->fetchAll();
     }
 
     public function disableShift( $companyId, $shiftId ) { 
-        if( !is_numeric($companyId) || !is_numeric($shiftId) ) die('Error: Los datos ingresados solo pueden ser numeros'); 
+        if( !ctype_digit($companyId) || !ctype_digit($shiftId) ) die('Error: Los datos ingresados solo pueden ser numeros'); 
 
         $this->db->query("UPDATE shifts SET available = '0' WHERE id_company = '$companyId' and id = '$shiftId'"); 
     }
 
     public function createShift($companyId, $date, $time) {
-        if( !is_numeric($companyId) ) die('Error: El ID de la empresa debe ser un número'); 
+        if( !ctype_digit($companyId) ) die('Error: El ID de la empresa debe ser un número'); 
         
         /* data sanitization */
         $companyId = $this->db->escapeWildcards($this->db->escape($companyId)); 
