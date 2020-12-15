@@ -9,7 +9,7 @@ if( (!empty($_POST['date'])) && (!empty($_POST['time'])) ) {
     $time = $_POST['time'];
     $today = strtotime(date("Y-m-d",time()));
 
-    if($date < $today){
+    if(!strtotime($date, time()) >= $today){
         header('Location: administrador');
     }
     

@@ -43,8 +43,8 @@ class Shifts extends Model{
     }
 
     public function createShift($companyId, $date, $time) {
-        if( !ctype_digit($companyId) ) die('Error: El ID de la empresa debe ser un número'); 
-        
+        if( !ctype_digit($companyId) ) die('Error: El ID de la empresa debe ser un número');  
+
         /* data sanitization */
         $companyId = $this->db->escapeWildcards($this->db->escape($companyId)); 
         $date = $this->db->escapeWildcards($this->db->escape($date));
