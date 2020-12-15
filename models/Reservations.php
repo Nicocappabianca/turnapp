@@ -5,7 +5,7 @@
 class Reservations extends Model{
 
     public function getNextReservations( $userId ) {
-        if( !is_numeric($userId) ) die('Error: El ID del usuario debe ser un número'); 
+        if( !ctype_digit($userId) ) die('Error: El ID del usuario debe ser un número'); 
 
         $this->db->query("SELECT * FROM reservations
                             JOIN users on reservations.id_user = users.id
@@ -16,7 +16,7 @@ class Reservations extends Model{
     }
 
     public function getPastReservations( $userId ) {
-        if( !is_numeric($userId) ) die('Error: El ID del usuario debe ser un número'); 
+        if( !ctype_digit($userId) ) die('Error: El ID del usuario debe ser un número'); 
 
         $this->db->query("SELECT * FROM reservations
                             JOIN users on reservations.id_user = users.id
@@ -27,13 +27,13 @@ class Reservations extends Model{
     }
 
     public function postReservation( $userId, $shiftId ) { 
-        if( !is_numeric($userId) || !is_numeric($shiftId) ) die('Error: Los datos ingresados solo pueden ser numeros'); 
+        if( !ctype_digit($userId) || !ctype_digit($shiftId) ) die('Error: Los datos ingresados solo pueden ser numeros'); 
 
         return $this->db->query( "INSERT INTO reservations (id_user, id_shift) VALUES ('$userId', '$shiftId')" ); 
     }
 
     public function getAllByCompanyAvailable($companyId) {
-        if( !is_numeric($companyId) ) die('Error: El ID de la empresa debe ser un número'); 
+        if( !ctype_digit($companyId) ) die('Error: El ID de la empresa debe ser un número'); 
 
         $this->db->query("SELECT * FROM shifts
                             JOIN companies on shifts.id_company = companies.id
@@ -43,7 +43,7 @@ class Reservations extends Model{
     }
 
     public function getAllByCompanyBusy($companyId) {
-        if( !is_numeric($companyId) ) die('Error: El ID de la empresa debe ser un número'); 
+        if( !ctype_digit($companyId) ) die('Error: El ID de la empresa debe ser un número'); 
 
         $this->db->query("SELECT * FROM reservations
                             JOIN shifts on shifts.id = reservations.id_shift
