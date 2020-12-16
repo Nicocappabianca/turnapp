@@ -58,5 +58,3 @@ class Companies extends Model{
         }
     }
 }
-
-class ValidationException extends Exception {}

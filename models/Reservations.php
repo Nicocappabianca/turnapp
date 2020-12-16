@@ -54,5 +54,3 @@ class Reservations extends Model{
         return $this->db->fetchAll(); 
     }
 }
-
-class ValidationException extends Exception {}

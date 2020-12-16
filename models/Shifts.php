@@ -61,5 +61,3 @@ class Shifts extends Model{
         VALUES ('$companyId', '$date', '$time', '1')" ); 
     }
 }
-
-class ValidationException extends Exception {}
