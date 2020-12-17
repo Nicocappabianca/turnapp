@@ -52,6 +52,9 @@ class Shifts extends Model{
         
         if( !checkdate($month, $day, $year) ) throw new ShiftsException('Error: La fecha ingresada es incorrecta'); 
 
+        /* time validation */
+        if( !preg_match("/^([01]?[0-9]|2[0-3])\:+[0-5][0-9]$/", $time) ) throw new ShiftsException('Error: La hora ingresada es incorrecta'); 
+
         /* data sanitization */
         $companyId = $this->db->escapeWildcards($this->db->escape($companyId)); 
         $date = $this->db->escapeWildcards($this->db->escape($date));
