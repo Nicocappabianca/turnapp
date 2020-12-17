@@ -5,7 +5,7 @@
 class Reservations extends Model{
 
     public function getNextReservations( $userId ) {
-        if( !ctype_digit($userId) ) throw new ValidationException('Error: El ID del usuario debe ser un número'); 
+        if( !ctype_digit($userId) ) throw new ReservationsException('Error: El ID del usuario debe ser un número'); 
 
         $this->db->query("SELECT * FROM reservations
                             JOIN users on reservations.id_user = users.id
@@ -16,7 +16,7 @@ class Reservations extends Model{
     }
 
     public function getPastReservations( $userId ) {
-        if( !ctype_digit($userId) ) throw new ValidationException('Error: El ID del usuario debe ser un número'); 
+        if( !ctype_digit($userId) ) throw new ReservationsException('Error: El ID del usuario debe ser un número'); 
 
         $this->db->query("SELECT * FROM reservations
                             JOIN users on reservations.id_user = users.id
@@ -27,13 +27,13 @@ class Reservations extends Model{
     }
 
     public function postReservation( $userId, $shiftId ) { 
-        if( !ctype_digit($userId) || !ctype_digit($shiftId) ) throw new ValidationException('Error: Los datos ingresados solo pueden ser numeros'); 
+        if( !ctype_digit($userId) || !ctype_digit($shiftId) ) throw new ReservationsException('Error: Los datos ingresados solo pueden ser numeros'); 
 
         return $this->db->query( "INSERT INTO reservations (id_user, id_shift) VALUES ('$userId', '$shiftId')" ); 
     }
 
     public function getAllByCompanyAvailable($companyId) {
-        if( !ctype_digit($companyId) ) throw new ValidationException('Error: El ID de la empresa debe ser un número'); 
+        if( !ctype_digit($companyId) ) throw new ReservationsException('Error: El ID de la empresa debe ser un número'); 
 
         $this->db->query("SELECT * FROM shifts
                             JOIN companies on shifts.id_company = companies.id
@@ -43,7 +43,7 @@ class Reservations extends Model{
     }
 
     public function getAllByCompanyBusy($companyId) {
-        if( !ctype_digit($companyId) ) throw new ValidationException('Error: El ID de la empresa debe ser un número'); 
+        if( !ctype_digit($companyId) ) throw new ReservationsException('Error: El ID de la empresa debe ser un número'); 
 
         $this->db->query("SELECT * FROM reservations
                             JOIN shifts on shifts.id = reservations.id_shift
@@ -54,3 +54,5 @@ class Reservations extends Model{
         return $this->db->fetchAll(); 
     }
 }
+
+class ReservationsException extends Exception {}

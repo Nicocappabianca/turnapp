@@ -5,7 +5,7 @@
 class Shifts extends Model{
 
     public function getAvailableShifts( $companyId ) {
-        if( !ctype_digit($companyId) ) throw new ValidationException('Error: El ID de la empresa debe ser un número');  
+        if( !ctype_digit($companyId) ) throw new ShiftsException('Error: El ID de la empresa debe ser un número');  
 
         $this->db->query("SELECT * FROM shifts WHERE id_company = $companyId and date >= CURDATE() ORDER BY date ASC");
         $dates = $this->db->fetchAll();
@@ -23,34 +23,34 @@ class Shifts extends Model{
     }
     
     private function isAvailable( $companyId, $date ) {
-        if( !ctype_digit($companyId) ) throw new ValidationException('Error: El ID de la empresa debe ser un número'); 
+        if( !ctype_digit($companyId) ) throw new ShiftsException('Error: El ID de la empresa debe ser un número'); 
 
         $this->db->query("SELECT * FROM shifts WHERE id_company = '$companyId' and date = '$date' and available = 1");
         return ($this->db->numRows() > 0) ? true : false; 
     }
 
     public function getSchedules( $companyId, $date ) { 
-        if( !ctype_digit($companyId) ) throw new ValidationException('Error: El ID de la empresa debe ser un número'); 
+        if( !ctype_digit($companyId) ) throw new ShiftsException('Error: El ID de la empresa debe ser un número'); 
 
         $this->db->query("SELECT id, time FROM shifts WHERE id_company = '$companyId' and date = '$date' and available = 1 ORDER BY time ASC");
         return $this->db->fetchAll();
     }
 
     public function disableShift( $companyId, $shiftId ) { 
-        if( !ctype_digit($companyId) || !ctype_digit($shiftId) ) throw new ValidationException('Error: Los datos ingresados solo pueden ser numeros'); 
+        if( !ctype_digit($companyId) || !ctype_digit($shiftId) ) throw new ShiftsException('Error: Los datos ingresados solo pueden ser numeros'); 
 
         $this->db->query("UPDATE shifts SET available = '0' WHERE id_company = '$companyId' and id = '$shiftId'"); 
     }
 
     public function createShift($companyId, $date, $time) {
-        if( !ctype_digit($companyId) ) throw new ValidationException('Error: El ID de la empresa debe ser un número');  
+        if( !ctype_digit($companyId) ) throw new ShiftsException('Error: El ID de la empresa debe ser un número');  
 
         /* date validation */
         $year = explode('-', $date)[0];
         $month = explode('-', $date)[1];
         $day = explode('-', $date)[2]; 
         
-        if( !checkdate($month, $day, $year) ) throw new ValidationException('Error: La fecha ingresada es incorrecta'); 
+        if( !checkdate($month, $day, $year) ) throw new ShiftsException('Error: La fecha ingresada es incorrecta'); 
 
         /* data sanitization */
         $companyId = $this->db->escapeWildcards($this->db->escape($companyId)); 
@@ -61,3 +61,5 @@ class Shifts extends Model{
         VALUES ('$companyId', '$date', '$time', '1')" ); 
     }
 }
+
+class ShiftsException extends Exception {}

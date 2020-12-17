@@ -10,7 +10,7 @@ class Users extends Model{
     }
 
     public function getUserById( $id ) { 
-        if( !ctype_digit($id) ) throw new ValidationException('Error: El ID del usuario debe ser un número'); 
+        if( !ctype_digit($id) ) throw new UsersException('Error: El ID del usuario debe ser un número'); 
 
         $this->db->query("SELECT * FROM users WHERE id = '$id'");
         return $this->db->fetch(); 
@@ -55,4 +55,4 @@ class Users extends Model{
     }
 }
 
-class ValidationException extends Exception {}
+class UsersException extends Exception {}

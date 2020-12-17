@@ -21,7 +21,7 @@ class Database {
     public function query($query) { 
         if(!$this->connection) $this->connect(); 
         $this->response = mysqli_query($this->connection, $query); 
-        if(!$this->response) throw new ConnectionException((mysqli_error($this->connection) ." -- Query: " .$query)); 
+        if(!$this->response) die(mysqli_error($this->connection) ." -- Query: " .$query); 
         return $this->response; 
     }
 
@@ -52,5 +52,3 @@ class Database {
         return $str; 
     }
 }
-
-class ConnectionException extends Exception {}
