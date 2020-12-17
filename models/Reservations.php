@@ -11,7 +11,7 @@ class Reservations extends Model{
                             JOIN users on reservations.id_user = users.id
                             JOIN shifts on shifts.id = reservations.id_shift
                             JOIN companies on shifts.id_company = companies.id
-                            WHERE reservations.id_user = '$userId' and shifts.date >= CURDATE() ORDER BY date ASC");
+                            WHERE reservations.id_user = $userId and shifts.date >= CURDATE() ORDER BY date ASC");
         return $this->db->fetchAll(); 
     }
 
@@ -22,14 +22,14 @@ class Reservations extends Model{
                             JOIN users on reservations.id_user = users.id
                             JOIN shifts on shifts.id = reservations.id_shift
                             JOIN companies on shifts.id_company = companies.id
-                            WHERE reservations.id_user = '$userId' and shifts.date < CURDATE() ORDER BY date ASC");
+                            WHERE reservations.id_user = $userId and shifts.date < CURDATE() ORDER BY date ASC");
         return $this->db->fetchAll(); 
     }
 
     public function postReservation( $userId, $shiftId ) { 
         if( !ctype_digit($userId) || !ctype_digit($shiftId) ) throw new ReservationsException('Error: Los datos ingresados solo pueden ser numeros'); 
 
-        return $this->db->query( "INSERT INTO reservations (id_user, id_shift) VALUES ('$userId', '$shiftId')" ); 
+        return $this->db->query( "INSERT INTO reservations (id_user, id_shift) VALUES ($userId, $shiftId)" ); 
     }
 
     public function getAllByCompanyAvailable($companyId) {
@@ -37,7 +37,7 @@ class Reservations extends Model{
 
         $this->db->query("SELECT * FROM shifts
                             JOIN companies on shifts.id_company = companies.id
-                            WHERE companies.id = $companyId and shifts.available = '1'
+                            WHERE companies.id = $companyId and shifts.available = 1
                             ORDER BY shifts.date ASC");
         return $this->db->fetchAll(); 
     }
@@ -49,7 +49,7 @@ class Reservations extends Model{
                             JOIN shifts on shifts.id = reservations.id_shift
                             JOIN companies on shifts.id_company = companies.id
                             JOIN users on reservations.id_user = users.id
-                            WHERE companies.id = $companyId and shifts.available = '0'
+                            WHERE companies.id = $companyId and shifts.available = 0
                             ORDER BY shifts.date ASC");
         return $this->db->fetchAll(); 
     }
